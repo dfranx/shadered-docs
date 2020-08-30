@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command line interface &mdash; SHADERed 1.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.4.0',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugin API" href="pluginapi.html" />
+    <link rel="prev" title="Debugger" href="debugger.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SHADERed
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workspace.html">Workspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pinned">Pinned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pixel-inspect">Pixel Inspect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#project-options">Project options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#render-to-image-file">Render to image file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#browse-online">Browse online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#export-as-c-project">Export as C++ project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shaderpass.html">Shader Pass</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#child-items">Child items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#d-model">3D Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#vertex-buffer">Vertex Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#render-state">Render State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#change-variable-value-for-pipeline-items">Change variable value for pipeline items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#system-variables">System variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#function-values">Function values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#input-layout">Input layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#macros">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelineitems.html">Other pipeline items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#compute-pass">Compute pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#audio-pass">Audio pass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#render-texture">Render texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#d-image">2D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#id1">3D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#keyboard-texture">Keyboard texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#srvs-uavs">SRVs &amp; UAVs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#overlay">Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pluginapi.html">Plugin API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#building-a-plugin">Building a plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#iplugin1">IPlugin1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pluginapi.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#project">Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#menu">Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#context">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#system-variables">System variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#function-variables">Function variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#pipeline-items">Pipeline items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="website.html#difference-between-quick-fork-fork">Difference between quick fork &amp; fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#pinned-variables">Pinned variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#following-notifications">Following &amp; notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#javascript-functions">Javascript functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#simple">#1 - Simple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-pass">Shader pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#d-objects">3D objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-code">Shader code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#textured-cube">#2 - Textured cube</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SHADERed</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Command line interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/commandline.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line-interface">
+<h1>Command line interface<a class="headerlink" href="#command-line-interface" title="Permalink to this headline">¶</a></h1>
+<p>You can use these commands in your terminal:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Command</td>
+<td>Description</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">--help</span></code>, <code class="docutils literal"><span class="pre">-h</span></code></td>
+<td>Prints information about available commands</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--minimal</span></code>, <code class="docutils literal"><span class="pre">-m</span></code></td>
+<td>Start SHADERed in minimal mode - no UI</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">--wwidth</span> <span class="pre">&lt;width&gt;</span></code>, <code class="docutils literal"><span class="pre">-ww</span> <span class="pre">&lt;width&gt;</span></code></td>
+<td>Set window width on startup</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--wheight</span> <span class="pre">&lt;height&gt;</span></code>, <code class="docutils literal"><span class="pre">-wh</span> <span class="pre">&lt;height&gt;</span></code></td>
+<td>Set window height on startup</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">--fullscreen</span></code>, <code class="docutils literal"><span class="pre">-fs</span></code></td>
+<td>Start SHADERed in fullscreen mode</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">--maximized</span></code>, <code class="docutils literal"><span class="pre">-max</span></code></td>
+<td>Make the window maximized on startup</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">--performance</span></code>, <code class="docutils literal"><span class="pre">-p</span></code></td>
+<td>Start SHADERed in performance mode - minimal UI and can be turned off while running</td>
+</tr>
+<tr class="row-odd"><td>filepath</td>
+<td>Providing a path to a .sprj project file will make SHADERed load that project</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pluginapi.html" class="btn btn-neutral float-right" title="Plugin API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="debugger.html" class="btn btn-neutral float-left" title="Debugger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, dfranx
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

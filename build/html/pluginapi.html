@@ -1,0 +1,1758 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugin API &mdash; SHADERed 1.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.4.0',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Themes" href="themes.html" />
+    <link rel="prev" title="Command line interface" href="commandline.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SHADERed
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workspace.html">Workspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pinned">Pinned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pixel-inspect">Pixel Inspect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#project-options">Project options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#render-to-image-file">Render to image file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#browse-online">Browse online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#export-as-c-project">Export as C++ project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shaderpass.html">Shader Pass</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#child-items">Child items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#d-model">3D Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#vertex-buffer">Vertex Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#render-state">Render State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#change-variable-value-for-pipeline-items">Change variable value for pipeline items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#system-variables">System variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#function-values">Function values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#input-layout">Input layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#macros">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelineitems.html">Other pipeline items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#compute-pass">Compute pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#audio-pass">Audio pass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#render-texture">Render texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#d-image">2D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#id1">3D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#keyboard-texture">Keyboard texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#srvs-uavs">SRVs &amp; UAVs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#overlay">Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plugin API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#building-a-plugin">Building a plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iplugin1">IPlugin1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#project">Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menu">Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#context">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#system-variables">System variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#function-variables">Function variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pipeline-items">Pipeline items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="website.html#difference-between-quick-fork-fork">Difference between quick fork &amp; fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#pinned-variables">Pinned variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#following-notifications">Following &amp; notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#javascript-functions">Javascript functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#simple">#1 - Simple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-pass">Shader pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#d-objects">3D objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-code">Shader code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#textured-cube">#2 - Textured cube</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SHADERed</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Plugin API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/pluginapi.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="plugin-api">
+<h1>Plugin API<a class="headerlink" href="#plugin-api" title="Permalink to this headline">¶</a></h1>
+<p>You can upload plugins <a class="reference external" href="/upload_plugin">here</a> so that they can be installed through the “Browse online” window.
+The .zip file containing binaries that you upload <em>must</em> contain the following file: <code class="docutils literal"><span class="pre">/plugins/PluginName/plugin.dll</span></code> where PluginName can be anything (though it really should be equal to the ID of your plugin). The .zip file’s content will be extracted directly into the SHADERed’s installation directory which means that you can provide additional .dll libraries, example projects, data files, etc…</p>
+<p>To update your plugin, go to your profile page and click on “My plugins”, find the plugin that you want to update and click on the “UPDATE” button. You can change the description, title &amp; upload new .zip files.</p>
+<p>Once uploaded/updated, the plugin will be waiting for a review. We do this to ensure quality content.</p>
+<p>Every plugin in the database must have unique ID.</p>
+<div class="section" id="building-a-plugin">
+<h2>Building a plugin<a class="headerlink" href="#building-a-plugin" title="Permalink to this headline">¶</a></h2>
+<p>Copy files found in <code class="docutils literal"><span class="pre">/src/SHADERed/Objects/Plugins</span></code> to your plugin’s project.
+<cite>PluginData.h</cite> file contains some object definitions and enums that SHADERed will use to communicate with the plugin.
+<cite>Plugin.h</cite> file contains definitions for IPlugin1, IPlugin2, etc..</p>
+<p>Start by creating a class that inherits one of the IPlugin interfaces. This class will be the main part of your plugin.
+In that class you’ll have to implement all of the functions. Even if you don’t use some Plugin API’s feature you will have
+to leave the function’s body empty.</p>
+<p>You will also have to implement these five functions:</p>
+<dl class="function">
+<dt id="CreatePlugin">
+<code class="descname">CreatePlugin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#CreatePlugin" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a pointer to a instance of your class which inherits IPlugin</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">IPlugin*</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="DestroyPlugin">
+<code class="descname">DestroyPlugin</code><span class="sig-paren">(</span><em>ptr</em><span class="sig-paren">)</span><a class="headerlink" href="#DestroyPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ptr</strong> (<em>IPlugin*</em>) – a pointer to a object that CreatePlugin() returned</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="GetPluginAPIVersion">
+<code class="descname">GetPluginAPIVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetPluginAPIVersion" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">version of PluginAPI that this plugin uses; this function must return 3</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="GetPluginVersion">
+<code class="descname">GetPluginVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetPluginVersion" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">version of your plugin; the return value will be used to compare the version of this plugin with the version available in the databse (the one you provide while uploading/updating the plugin) to check if there has been any updates</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="GetPluginName">
+<code class="descname">GetPluginName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#GetPluginName" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of your plugin that will be used everywhere</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">const char*</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="iplugin1">
+<h2>IPlugin1<a class="headerlink" href="#iplugin1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="features">
+<h3>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h3>
+<p>In this section we will describe all the methods that you can override.</p>
+<div class="section" id="general">
+<h4>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="Init">
+<code class="descname">Init</code><span class="sig-paren">(</span><em>isWeb</em>, <em>sedVersion</em><span class="sig-paren">)</span><a class="headerlink" href="#Init" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called immediately after the plugin has been loaded from the .dll</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>isWeb</strong> (<em>bool</em>) – whether or not this plugin is running on the web</li>
+<li><strong>sedVersion</strong> (<em>int</em>) – encoded version of SHADERed (1003006 for v1.3.6, 1004000 for v1.4, etc…)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if initialization completed successfully, false otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="InitUI">
+<code class="descname">InitUI</code><span class="sig-paren">(</span><em>ctx</em><span class="sig-paren">)</span><a class="headerlink" href="#InitUI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement this function only when your plugin uses UI. You must use imgui library and also it must match the version that SHADERed uses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ctx</strong> (<em>void*</em>) – a pointer to ImGuiContext* object</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Update">
+<code class="descname">Update</code><span class="sig-paren">(</span><em>delta</em><span class="sig-paren">)</span><a class="headerlink" href="#Update" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called every frame between event handling code and rendering code.
+This is where you should call ImGui functions if you use it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delta</strong> (<em>float</em>) – time elapsed between previous and this frame</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Destroy">
+<code class="descname">Destroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Destroy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when plugin is unloaded.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="IsRequired">
+<code class="descname">IsRequired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#IsRequired" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will be called when saving a project file &amp; if this plagin output some data in that project file (.sprj).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if this project can’t be opened without this plugin, false otherwise</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="IsVersionCompatible">
+<code class="descname">IsVersionCompatible</code><span class="sig-paren">(</span><em>version</em><span class="sig-paren">)</span><a class="headerlink" href="#IsVersionCompatible" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is called when loading a project that requires this plugin. It is used to check if the older/newer version of this plugin’s project data is compatible with user’s version of plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>version</strong> (<em>int</em>) – version of the plugin used in the project file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if plugins are compatible and project can be loaded, otherwise false</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="BeginRender">
+<code class="descname">BeginRender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BeginRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called right before the rendering starts.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="EndRender">
+<code class="descname">EndRender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#EndRender" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called right after the rendering ends.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="project">
+<h4>Project<a class="headerlink" href="#project" title="Permalink to this headline">¶</a></h4>
+<p>Functions related to project loading/saving.</p>
+<dl class="function">
+<dt id="Project_BeginLoad">
+<code class="descname">Project_BeginLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_BeginLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called before project loading starts. It’s only called for plugins that were used in this project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_EndLoad">
+<code class="descname">Project_EndLoad</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_EndLoad" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called right after project loading ends. It’s only called for plugins that were used in this project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_BeginSave">
+<code class="descname">Project_BeginSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_BeginSave" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called before project saving starts. It’s only called for plugins that were used in this project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_EndSave">
+<code class="descname">Project_EndSave</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_EndSave" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called right after project saving ends. It’s only called for plugins that were used in this project.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_HasAdditionalData">
+<code class="descname">Project_HasAdditionalData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_HasAdditionalData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when saving to a project file. Used to check if plugin wants to export some addional data to the project file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">true if this plugin would like to export some extra data to .sprj file, otherwise false</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_ExportAdditionalData">
+<code class="descname">Project_ExportAdditionalData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Project_ExportAdditionalData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called if Project_HasAdditionalData() returned true</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing XML data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">const char*</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_ImportAdditionalData">
+<code class="descname">Project_ImportAdditionalData</code><span class="sig-paren">(</span><em>xml</em><span class="sig-paren">)</span><a class="headerlink" href="#Project_ImportAdditionalData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when loading a project if there is any extra data tied to this plugin in the .sprj file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>xml</strong> (<em>const_char*</em>) – version of the plugin used in the project file</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Project_CopyFilesOnSave">
+<code class="descname">Project_CopyFilesOnSave</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span><a class="headerlink" href="#Project_CopyFilesOnSave" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when saving a project but also copying all the files related to it (when “Save As” is used).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> (<em>const_char*</em>) – path to a directory in which the project is being saved</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="menu">
+<h4>Menu<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h4>
+<p>UI methods for adding items to the menu bar &amp; it’s menus.</p>
+<dl class="function">
+<dt>
+<code class="descname">bool HasCustomMenuItem()</code></dt>
+<dd><p>Called each frame to check if the plugin wants a special menu in the menu bar. The menu will user GetPluginName() for display string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">a string containing XML data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="HasMenuItems">
+<code class="descname">HasMenuItems</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#HasMenuItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will be called to check if plugin wants to add custom options to one of the menus in the menu bar.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>const_char*</em>) – <p>name of the parent menu</p>
+<ul class="simple">
+<li>”file” → parent is the <cite>File</cite> menu in the menu bar</li>
+<li>”newproject” → parent is the <cite>File</cite> → <cite>New</cite></li>
+<li>”project” → parent is the <cite>Project</cite> menu in the menu bar</li>
+<li>”createitem” → parent is the <cite>Project</cite> → <cite>Create</cite></li>
+<li>”window” → parent is the <cite>Window</cite> menu in the menu bar</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if this plugin wants to add it’s own items to the menu, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ShowMenuItems">
+<code class="descname">ShowMenuItems</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#ShowMenuItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call ImGui::MenuItem() to add your own items depending on the given parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>const_char*</em>) – <p>name of the parent menu</p>
+<ul class="simple">
+<li>”file” → parent is the <cite>File</cite> menu in the menu bar</li>
+<li>”newproject” → parent is the <cite>File</cite> → <cite>New</cite></li>
+<li>”project” → parent is the <cite>Project</cite> menu in the menu bar</li>
+<li>”createitem” → parent is the <cite>Project</cite> → <cite>Create</cite></li>
+<li>”window” → parent is the <cite>Window</cite> menu in the menu bar</li>
+<li>”custom” → parent is the <cite>“GetPluginName()”</cite> menu in the menu bar</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="context">
+<h4>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h4>
+<p>UI methods for adding items to the context menus.</p>
+<dl class="function">
+<dt id="HasContextItems">
+<code class="descname">HasContextItems</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#HasContextItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will be called to check if plugin wants to add custom options to one of the context menus.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>name</strong> (<em>const_char*</em>) – <p>name of the context menu, can be one of these values:</p>
+<ul class="simple">
+<li>”pipeline” → right click in the “Pipeline” window</li>
+<li>”shaderpass_add” → right click on a shader pass item → <cite>Add</cite></li>
+<li>”pluginitem_add” → right click on a plugin item in the pipeline window → <cite>Add</cite></li>
+<li>”objects” → right click in the “Objects” window</li>
+<li>”editcode” → right click on a plugin item → <cite>Edit code</cite></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if this plugin wants to add it’s own items to the context menu, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="ShowContextItems">
+<code class="descname">ShowContextItems</code><span class="sig-paren">(</span><em>name</em><span class="optional">[</span>, <em>owner = nullptr</em><span class="optional">]</span><span class="optional">[</span>, <em>extraData = nullptr</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#ShowContextItems" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call ImGui::MenuItem() to add items depending on the given parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>const_char*</em>) – <p>name of the context menu, can be one of these values:</p>
+<ul>
+<li>”pipeline” → right click in the “Pipeline” window</li>
+<li>”shaderpass_add” → right click on a shader pass item → <cite>Add</cite></li>
+<li>”pluginitem_add” → right click on a plugin item in the pipeline window → <cite>Add</cite></li>
+<li>”objects” → right click in the “Objects” window</li>
+<li>”editcode” → right click on a plugin item → <cite>Edit code</cite></li>
+</ul>
+</li>
+<li><strong>owner</strong> (<em>void*</em>) – <p>the item that we right clicked on</p>
+<ul>
+<li>”shaderpass_add” → pointer to a PipelineItem (PipelineItem*) that we right clicked on</li>
+<li>”pluginitem_add” → the item type (const char*) of the plugin PipelineItem that we right clicked on</li>
+<li>”editcode” → name of the PipelineItem</li>
+</ul>
+</li>
+<li><strong>extraData</strong> (<em>void*</em>) – <p>additional data supplied</p>
+<ul>
+<li>”pluginitem_add” → pointer to PluginItemData structure</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="system-variables">
+<h4>System variables<a class="headerlink" href="#system-variables" title="Permalink to this headline">¶</a></h4>
+<p>Methods for implementing your own system variables.</p>
+<dl class="function">
+<dt id="SystemVariables_GetNameCount">
+<code class="descname">SystemVariables_GetNameCount</code><span class="sig-paren">(</span><em>varType</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemVariables_GetNameCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of system variables for given variable type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>varType</strong> (<em>VariableType</em>) – the type of the variable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">number of system variables for given variable type</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SystemVariables_GetName">
+<code class="descname">SystemVariables_GetName</code><span class="sig-paren">(</span><em>varType</em>, <em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemVariables_GetName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the system variable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>varType</strong> (<em>VariableType</em>) – the type of the variable</li>
+<li><strong>index</strong> (<em>int</em>) – number in range [0, SystemVariables_GetNameCount(varType)-1]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">name of the system variable at the given index</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">const char*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SystemVariables_HasLastFrame">
+<code class="descname">SystemVariables_HasLastFrame</code><span class="sig-paren">(</span><em>name</em>, <em>varType</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemVariables_HasLastFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Does this system variable support last frame value?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>char*</em>) – name of the system variable</li>
+<li><strong>varType</strong> (<em>VariableType</em>) – type of the variable</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if the “Use values from last frame” flag can be used on this system variable</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="SystemVariables_UpdateValue">
+<code class="descname">SystemVariables_UpdateValue</code><span class="sig-paren">(</span><em>data</em>, <em>name</em>, <em>varType</em>, <em>isLastFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#SystemVariables_UpdateValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify variable’s value (stored in the <cite>data</cite> parameter)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>char*</em>) – variable’s value (input &amp; output)</li>
+<li><strong>name</strong> (<em>char*</em>) – system variable name</li>
+<li><strong>varType</strong> (<em>VariableType</em>) – variable type</li>
+<li><strong>isLastFrame</strong> (<em>bool</em>) – true if the “Last frame” flag is checked, otherwise false</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="function-variables">
+<h4>Function variables<a class="headerlink" href="#function-variables" title="Permalink to this headline">¶</a></h4>
+<p>Methods for implementing your own variable functions.</p>
+<dl class="function">
+<dt id="VariableFunctions_GetNameCount">
+<code class="descname">VariableFunctions_GetNameCount</code><span class="sig-paren">(</span><em>vtype</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_GetNameCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of functions for given variable type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">number of function variables for given variable type</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_GetName">
+<code class="descname">VariableFunctions_GetName</code><span class="sig-paren">(</span><em>ed::plugin::VariableType varType</em>, <em>int index</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_GetName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the name of the function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>varType</strong> (<em>VariableType</em>) – the type of the variable</li>
+<li><strong>index</strong> (<em>int</em>) – number in range [0, VariableFunctions_GetNameCount(varType)-1]</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">name of the function variable at the given index</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">const char*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_ShowArgumentEdit">
+<code class="descname">VariableFunctions_ShowArgumentEdit</code><span class="sig-paren">(</span><em>fname</em>, <em>args</em>, <em>vtype</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_ShowArgumentEdit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show the UI for editing function’s arguments</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fname</strong> (<em>char*</em>) – name of the function</li>
+<li><strong>args</strong> (<em>char*</em>) – argument values</li>
+<li><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">– not used –</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_UpdateValue">
+<code class="descname">VariableFunctions_UpdateValue</code><span class="sig-paren">(</span><em>data</em>, <em>args</em>, <em>fname</em>, <em>varType</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_UpdateValue" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the value of a variable based on the function and arguments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>char*</em>) – variable’s value (input &amp; output)</li>
+<li><strong>fname</strong> (<em>char*</em>) – name of the function</li>
+<li><strong>args</strong> (<em>char*</em>) – argument values</li>
+<li><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_GetArgsSize">
+<code class="descname">VariableFunctions_GetArgsSize</code><span class="sig-paren">(</span><em>fname</em>, <em>varType</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_GetArgsSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the size required to store the arguments for this function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fname</strong> (<em>char*</em>) – function name</li>
+<li><strong>varType</strong> (<em>VariableType</em>) – the type of the variable</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">number of bytes required to store arguments for this function</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_InitArguments">
+<code class="descname">VariableFunctions_InitArguments</code><span class="sig-paren">(</span><em>args</em>, <em>fname</em>, <em>vtype</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_InitArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize arguments to default values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>args</strong> (<em>char*</em>) – output</li>
+<li><strong>fname</strong> (<em>char*</em>) – function name</li>
+<li><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_ExportArguments">
+<code class="descname">VariableFunctions_ExportArguments</code><span class="sig-paren">(</span><em>fname</em>, <em>vtype</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_ExportArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export arguments in the project file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>fname</strong> (<em>char*</em>) – function name</li>
+<li><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</li>
+<li><strong>args</strong> (<em>char*</em>) – argument values</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">XML containing information about argument values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">const char*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="VariableFunctions_ImportArguments">
+<code class="descname">VariableFunctions_ImportArguments</code><span class="sig-paren">(</span><em>fname</em>, <em>vtype</em>, <em>args</em>, <em>argsString</em><span class="sig-paren">)</span><a class="headerlink" href="#VariableFunctions_ImportArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Import arguments from the project file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>fname</strong> (<em>char*</em>) – function name</li>
+<li><strong>vtype</strong> (<em>VariableType</em>) – the type of the variable</li>
+<li><strong>args</strong> (<em>char*</em>) – argument values</li>
+<li><strong>argsString</strong> (<em>const_char*</em>) – XML containing information about argument values</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="objects">
+<h4>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h4>
+<p>Methods for handling and implementing custom objects.</p>
+<dl class="function">
+<dt id="Object_HasPreview">
+<code class="descname">Object_HasPreview</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_HasPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the custom object has a preview in the context menu (when user right clicks on the object).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the object has preview, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_ShowPreview">
+<code class="descname">Object_ShowPreview</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_ShowPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show preview in the context menu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+<li><strong>id</strong> (<em>uint</em>) – object ID, the one passed as an argument when calling the AddObject()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_IsBindable">
+<code class="descname">Object_IsBindable</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_IsBindable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can this object be bound as a readonly object to shader and compute passes?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the object can be bound as a SRV, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_IsBindableUAV">
+<code class="descname">Object_IsBindableUAV</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_IsBindableUAV" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can this object be bound as a UAV in compute passes?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the object can be bound as a UAV, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_Remove">
+<code class="descname">Object_Remove</code><span class="sig-paren">(</span><em>name</em>, <em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_Remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that handles when user deletes an object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>const_char*</em>) – name of the object</li>
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by the plugin</li>
+<li><strong>id</strong> (<em>uint</em>) – id of the object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_HasExtendedPreview">
+<code class="descname">Object_HasExtendedPreview</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_HasExtendedPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the custom object has a preview that can be opened in a special window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the object has “extended” preview, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_ShowExtendedPreview">
+<code class="descname">Object_ShowExtendedPreview</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_ShowExtendedPreview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show preview in a special window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+<li><strong>id</strong> (<em>uint</em>) – object ID, the one passed as an argument when calling the AddObject()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_HasProperties">
+<code class="descname">Object_HasProperties</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_HasProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can our object be opened in the properties window?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if the object can be opened in properties window, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_ShowProperties">
+<code class="descname">Object_ShowProperties</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_ShowProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show properties UI for this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+<li><strong>id</strong> (<em>uint</em>) – object ID, the one passed as an argument when calling the AddObject()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_Bind">
+<code class="descname">Object_Bind</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_Bind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bind your object to a shader (eg: call glActiveTexture, glBindTexture, etc…)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+<li><strong>id</strong> (<em>uint</em>) – object ID, the one passed as an argument when calling the AddObject()</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_Export">
+<code class="descname">Object_Export</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_Export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export information about your object to a project file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+<li><strong>id</strong> (<em>uint</em>) – object ID, the one passed as an argument when calling the AddObject()</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">XML containing information about the object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">const char*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_Import">
+<code class="descname">Object_Import</code><span class="sig-paren">(</span><em>name</em>, <em>type</em>, <em>objString</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_Import" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parse information about an object from a project file. This function should call AddObject so that SHADERed can actually add the object to object manager.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> (<em>const_char*</em>) – the name of the object</li>
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>objString</strong> (<em>const_char*</em>) – XML containing information about the object</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_HasContext">
+<code class="descname">Object_HasContext</code><span class="sig-paren">(</span><em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_HasContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if this plugin object should have more items in it’s context menu than the “Preview”, “Properties” &amp; “Delete” buttons.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type</strong> (<em>const_char*</em>) – the type name of the object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">true if there are additional context menu items, false otherwise</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="Object_ShowContext">
+<code class="descname">Object_ShowContext</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#Object_ShowContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the UI for the context menu items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the object</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin (“user data”) and passed as an argument in AddObject() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="pipeline-items">
+<h4>Pipeline items<a class="headerlink" href="#pipeline-items" title="Permalink to this headline">¶</a></h4>
+<p>Methods for handling and implementing custom pipeline items.</p>
+<dl class="function">
+<dt id="PipelineItem_HasProperties">
+<code class="descname">PipelineItem_HasProperties</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_HasProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Can our pipeline item be opened in the properties window?</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if the pipeline item can be opened in the properties window, false otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_ShowProperties">
+<code class="descname">PipelineItem_ShowProperties</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_ShowProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show properties UI for this pipeline item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_IsPickable">
+<code class="descname">PipelineItem_IsPickable</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_IsPickable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the pipeline item can be selected through the preview window using left click.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if the pipeline item can be picked, false otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_HasShaders">
+<code class="descname">PipelineItem_HasShaders</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_HasShaders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the pipeline item has it’s own shaders.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if the pipeline item has it’s own shaders, false otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_OpenInEditor">
+<code class="descname">PipelineItem_OpenInEditor</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_OpenInEditor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle a request to open this plugin’s pipeline item’s shaders in the text editor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_CanHaveChild">
+<code class="descname">PipelineItem_CanHaveChild</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>itemType</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_CanHaveChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if an item of a certain type can be added as a child to this custom pipeline item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>itemType</strong> (<em>PipelineItemType</em>) – type of the child item</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_GetInputLayoutSize">
+<code class="descname">PipelineItem_GetInputLayoutSize</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_GetInputLayoutSize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get number of input layout entries for this pipeline item. This must be supported if this item can have geometry as children.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">number of input layout entries</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">int</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_GetInputLayoutItem">
+<code class="descname">PipelineItem_GetInputLayoutItem</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>index</em>, <em>out</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_GetInputLayoutItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets information about input layout item at a certain index.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>index</strong> (<em>int</em>) – index of a input layout item</li>
+<li><strong>out</strong> (<em>InputLayoutItem&amp;</em>) – parameter in which you should store information about this input layout item</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_Remove">
+<code class="descname">PipelineItem_Remove</code><span class="sig-paren">(</span><em>itemName</em>, <em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_Remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that handles when user deletes a pipeline item owned by this plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>itemName</strong> (<em>const_char*</em>) – name of the pipeline item</li>
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_Rename">
+<code class="descname">PipelineItem_Rename</code><span class="sig-paren">(</span><em>oldName</em>, <em>newName</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_Rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that handles when user renames a pipeline item owned by this plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>oldName</strong> (<em>const_char*</em>) – old name of the pipeline item</li>
+<li><strong>newName</strong> (<em>const_char*</em>) – new name of the pipeline item</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_AddChild">
+<code class="descname">PipelineItem_AddChild</code><span class="sig-paren">(</span><em>owner</em>, <em>name</em>, <em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_AddChild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that handles when user adss a child item to a pipeline item owned by this plugin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>owner</strong> (<em>const_char*</em>) – name of the pipeline item to which this child item has been added</li>
+<li><strong>name</strong> (<em>const_char*</em>) – name of the pipeline item</li>
+<li><strong>type</strong> (<em>PipelineItemType</em>) – type of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – pointer to pipeline item’s data</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_CanHaveChildren">
+<code class="descname">PipelineItem_CanHaveChildren</code><span class="sig-paren">(</span><em>const char* type</em>, <em>void* data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_CanHaveChildren" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if an item can have child items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if it can have children, false otherwise</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_CopyData">
+<code class="descname">PipelineItem_CopyData</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_CopyData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle copying data allocated by this plugin to another item. This is used when user duplicates an item for example.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">pointer to a new object</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">void*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">void PipelineItem_Execute(Owner, OwnerType, type, data)</code></dt>
+<dd><p>Handle executing/rendering the child item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>Owner</strong> (<em>void*</em>) – pointer to a PipelineItem of the owner of this plugin’s pipeline item that we are executing</li>
+<li><strong>OwnerType</strong> (<em>PipelineItemType</em>) – the type of the owner</li>
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_Execute">
+<code class="descname">PipelineItem_Execute</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>children</em>, <em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_Execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute/Render the pipeline item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>children</strong> (<em>void*</em>) – list of child items</li>
+<li><strong>count</strong> (<em>int</em>) – number of child items</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_GetWorldMatrix">
+<code class="descname">PipelineItem_GetWorldMatrix</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>pMat</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_GetWorldMatrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get pipeline item’s world matrix. This must be handled if item is pickable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>children</strong> (<em>float*</em>) – output - a 4x4 matrix</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_Intersect">
+<code class="descname">PipelineItem_Intersect</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>rayOrigin</em>, <em>rayDir</em>, <em>hitDist</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_Intersect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if a ray (generated when user is picking items) intersects the pipeline item</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>rayOrigin</strong> (<em>float</em><em>[</em><em>3</em><em>]</em>) – the position where the ray starts</li>
+<li><strong>rayDir</strong> (<em>float</em><em>[</em><em>3</em><em>]</em>) – the direction in which ray is going</li>
+<li><strong>hitDist</strong> (<em>float&amp;</em>) – output - store a distance between ray origin and intersection point if there is any intersection</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if ray intersects the pipeline item</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_GetBoundingBox">
+<code class="descname">PipelineItem_GetBoundingBox</code><span class="sig-paren">(</span><em>type</em>, <em>data</em>, <em>minPos</em>, <em>maxPos</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_GetBoundingBox" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the pipeline item’s bounding box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+<li><strong>minPos</strong> (<em>float</em><em>[</em><em>3</em><em>]</em>) – output - the minimum coordinates</li>
+<li><strong>maxPos</strong> (<em>float</em><em>[</em><em>3</em><em>]</em>) – output - the maximum coordinates</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">PipelineItem_HasContext(const char* type, void* data) = 0;</code></dt>
+<dd><p>Check if this plugin pipeline item should have additional items in it’s context menu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">true if there are additional context menu items</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">bool</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_ShowContext">
+<code class="descname">PipelineItem_ShowContext</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_ShowContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Render the UI for the context menu items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="PipelineItem_Export">
+<code class="descname">PipelineItem_Export</code><span class="sig-paren">(</span><em>type</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#PipelineItem_Export" title="Permalink to this definition">¶</a></dt>
+<dd><p>Export information about the pipeline item to a project file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>type</strong> (<em>const_char*</em>) – the type name of the pipeline item</li>
+<li><strong>data</strong> (<em>void*</em>) – the data allocated by this plugin and passed to the AddCustomPipelineItem() function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">XML containing information about the pipeline item</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">const char*</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<p>Rest of the documentation is missing. Feel free to help. Here’s source code for this documentation: <a class="reference external" href="https://github.com/dfranx/shadered-docs">GitHub link</a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="themes.html" class="btn btn-neutral float-right" title="Themes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="commandline.html" class="btn btn-neutral float-left" title="Command line interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, dfranx
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

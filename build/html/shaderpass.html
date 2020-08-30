@@ -1,0 +1,499 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Shader Pass &mdash; SHADERed 1.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.4.0',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Other pipeline items" href="pipelineitems.html" />
+    <link rel="prev" title="Workspace" href="workspace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SHADERed
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workspace.html">Workspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pinned">Pinned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pixel-inspect">Pixel Inspect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#project-options">Project options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#render-to-image-file">Render to image file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#browse-online">Browse online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#export-as-c-project">Export as C++ project</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Shader Pass</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#child-items">Child items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#d-model">3D Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#vertex-buffer">Vertex Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#render-state">Render State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#change-variable-value-for-pipeline-items">Change variable value for pipeline items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#system-variables">System variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#function-values">Function values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#input-layout">Input layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macros">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelineitems.html">Other pipeline items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#compute-pass">Compute pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#audio-pass">Audio pass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#render-texture">Render texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#d-image">2D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#id1">3D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#keyboard-texture">Keyboard texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#srvs-uavs">SRVs &amp; UAVs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#overlay">Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pluginapi.html">Plugin API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#building-a-plugin">Building a plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#iplugin1">IPlugin1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pluginapi.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#project">Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#menu">Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#context">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#system-variables">System variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#function-variables">Function variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#pipeline-items">Pipeline items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="website.html#difference-between-quick-fork-fork">Difference between quick fork &amp; fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#pinned-variables">Pinned variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#following-notifications">Following &amp; notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#javascript-functions">Javascript functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#simple">#1 - Simple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-pass">Shader pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#d-objects">3D objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-code">Shader code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#textured-cube">#2 - Textured cube</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SHADERed</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Shader Pass</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/shaderpass.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shader-pass">
+<h1>Shader Pass<a class="headerlink" href="#shader-pass" title="Permalink to this headline">¶</a></h1>
+<p>Shader Pass is a pipeline item which tells SHADERed what items to render and what shader to use.
+SHADERed will ask you to enter the path to your shaders when you are creating a shader pass item.
+Shader files will be automatically created if you do not provide your own.
+You must set shader entry for HLSL shaders. Shader entry is the “main” function of your shader.
+Check the “GS used” checkbox if you want to use geometry shaders.
+You can later change all of this in the properties.</p>
+<div class="section" id="child-items">
+<h2>Child items<a class="headerlink" href="#child-items" title="Permalink to this headline">¶</a></h2>
+<p>To add items to a shader pass, right click on the shader pass → Add → pick item type. Here’s a list of item types that you can add to the shader pass:</p>
+<div class="section" id="geometry">
+<h3>Geometry<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h3>
+<p>Geometry item is just a basic built-in 3D geometry. Here’s a list of geometry types that you can use:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Cube</li>
+<li>ScreenQuad</li>
+<li>Circle</li>
+<li>Triangle</li>
+<li>Sphere</li>
+<li>Plane</li>
+<li>ScreenQuadNDC → the difference between ScreenQuadNDC and ScreenQuad is that ScreenQuadNDC is using normalized device coordinates [-1, 1] which means that you don’t have to process it’s position in vertex shader, meanwhile you have to multiply ScreenQuad’s vertex positions (usually with Orthographic matrix) in order to display something reasonable</li>
+</ul>
+</div></blockquote>
+<dl class="docutils">
+<dt>Each geometry item has these properties:</dt>
+<dd><ul class="first last simple">
+<li>Position</li>
+<li>Scale</li>
+<li>Rotation</li>
+<li>Topology → triangles, triangle strip, lines, etc…</li>
+<li>Instanced → is this item instanced?</li>
+<li>Instance count → number of instances</li>
+<li>Instance buffer → the buffer that will supply positions, normals, etc… for each instance</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="d-model">
+<h3>3D Model<a class="headerlink" href="#d-model" title="Permalink to this headline">¶</a></h3>
+<p>You can load 3D models if you require objects more complex than the simple built-in geometry. SHADERed uses <a class="reference external" href="https://www.assimp.org/">assimp</a> which means that all the formats that assimp supports will be supported by SHADERed too.</p>
+<p>3D models have the same properties as the geometry items.</p>
+</div>
+<div class="section" id="vertex-buffer">
+<h3>Vertex Buffer<a class="headerlink" href="#vertex-buffer" title="Permalink to this headline">¶</a></h3>
+<p>Vertex buffers are pipeline items whose vertices are supplied from a buffer object.</p>
+<p>Vertex buffers have the same properties as the geometry items &amp; 3D models.</p>
+</div>
+<div class="section" id="render-state">
+<h3>Render State<a class="headerlink" href="#render-state" title="Permalink to this headline">¶</a></h3>
+<p>Render states allow you to use, modify &amp; turn on/off: depth testing, blend states, stencil tests, etc…</p>
+<p>Render state is only applied to items below it and the internal state is reset with every shader pass.</p>
+</div>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>Right click on the shader pass → <cite>Variables</cite> to access the variable manager.
+Here you’ll see list of all of your variables for this shader pass.
+You can add, delete &amp; modify variables.
+The names of variables in this window must match the names of variables in the shader’s code (doesn’t matter what language you are using).
+Some variables will also have these flags available: “use last frame value” &amp; “invert”.
+If “use last frame value” is checked, the value of this variable will lag 1 frame.
+This is useful for example when you want to get the speed of the camera.
+“Invert” flag will create inverse of a matrix</p>
+<p>System variables are variables whose value SHADERed will automatically generate.</p>
+<p>You can pin variables to the Pinned window by pressing the “+” button. Unpin them by pressing the “-” button.</p>
+<img alt="Variable manager" src="_images/VariableManager.png" />
+<div class="section" id="change-variable-value-for-pipeline-items">
+<h3>Change variable value for pipeline items<a class="headerlink" href="#change-variable-value-for-pipeline-items" title="Permalink to this headline">¶</a></h3>
+<p>You can change variable value only for a specific pipeline item. For example, this is useful
+when you have two cubes rendered with the same shader pass but want them to have different colors or materials.
+Right click on a cube #2 → <cite>Change variables</cite> → pick the variable that you want to change
+and enter it’s new value. The variable will now take that value only when rendering cube #2.</p>
+</div>
+<div class="section" id="system-variables">
+<h3>System variables<a class="headerlink" href="#system-variables" title="Permalink to this headline">¶</a></h3>
+<p>As mentioned previously, system variables are variables whose value SHADERed will generate.
+Here’s a list of all system variables and the value they hold:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Time (<cite>float</cite>) → elapsed time</li>
+<li>TimeDelta (<cite>float</cite>) → elapsed time between this and previous frame</li>
+<li>FrameIndex (<cite>int</cite>) → frame index</li>
+<li>ViewportSize (<cite>float2/vec2</cite>) → current viewport size in pixels</li>
+<li>MousePosition (<cite>float2/vec2</cite>) → position of the mouse in [0, 1]</li>
+<li>View (<cite>float4x4/mat4</cite>) → camera’s view matrix</li>
+<li>Projection (<cite>float4x4/mat4</cite>) → perspective projection matrix</li>
+<li>ViewProjection (<cite>float4x4/mat4</cite>) → View * Projection</li>
+<li>Orthographic (<cite>float4x4/mat4</cite>) → orthographic projection matrix</li>
+<li>ViewOrthographic (<cite>float4x4/mat4</cite>) → View * Orthographic</li>
+<li>GeometryTransform (<cite>float4x4/mat4</cite>) → pipeline item’s transform matrix (if you want to apply translation, rotation &amp; scaling)</li>
+<li>IsPicked (<cite>bool/int</cite>) → is this item selected by the user with the left click?</li>
+<li>IsSavingToFile (<cite>bool/int</cite>) → are we currently rendering to an image file?</li>
+<li>CameraPosition (<cite>float4/vec4</cite>) → the position of our camera</li>
+<li>CameraPosition3 (<cite>float3/vec3</cite>) → the position of our camera</li>
+<li>CameraDirection3 (<cite>float4/vec4</cite>) → the direction at which the camera is looking</li>
+<li>KeysWASD (<cite>bool4/bvec4</cite>) → are (W,A,S,D) keys down?</li>
+<li>Mouse (<cite>float4/vec4</cite>) → (mouse position x, mouse position y, is left mouse button down, is right mouse button down)</li>
+<li>MouseButton (<cite>float4/vec4</cite>) → (current mouse position x, current mouse position y, last position when the left button was down x, last position when the left button was down y)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="function-values">
+<h3>Function values<a class="headerlink" href="#function-values" title="Permalink to this headline">¶</a></h3>
+<p>Functions are a way to store ‘programmatically calculated’ values in the variable. Here’s a list of functions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Pointer → a pointer to some other variable - this will copy the value of the chosen variable</li>
+<li>CameraSnapshot → get one of the camera’s matrix</li>
+<li>ObjectProperty → get 3D objects property in a variable (position, rotation, scale)</li>
+<li>MatrixIdentity → creates an identity matrix</li>
+<li>MatrixLookAtLH → create a ‘look at’-view matrix</li>
+<li>MatrixLookToLH → create a ‘look to’-view matrix</li>
+<li>MatrixOrthographicLH → create a projection matrix</li>
+<li>MatrixPerspectiveFovLH → create a projection using FOV matrix</li>
+<li>MatrixPerspectiveLH → create a projection matrix</li>
+<li>MatrixRotationAxis → rotation matrix around an axis</li>
+<li>MatrixRotationNormal → rotation around a normal</li>
+<li>MatrixRotationRollPitchYaw → roll, pitch &amp; yaw rotation</li>
+<li>MatrixRotationX → rotation around X axis</li>
+<li>MatrixRotationY → rotation around Y axis</li>
+<li>MatrixRotationZ → rotation around Z axis</li>
+<li>MatrixScaling → create a scale matrix</li>
+<li>MatrixTranslation → create a translation matrix</li>
+<li>ScalarCos → calculate cos</li>
+<li>ScalarSin → calculate sin</li>
+<li>VectorNormalize → normalize(vector)</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="input-layout">
+<h2>Input layout<a class="headerlink" href="#input-layout" title="Permalink to this headline">¶</a></h2>
+<p>In the input layout manager you decide what to send to vertex shader’s input.
+Here’s a list of currently available options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Position (<cite>float3/vec3</cite>)</li>
+<li>Normal (<cite>float3/vec3</cite>)</li>
+<li>Texture coordinate (<cite>float2/vec2</cite>)</li>
+<li>Tangent (<cite>float3/vec3</cite>)</li>
+<li>Binormal (<cite>float3/vec3</cite>)</li>
+<li>Color (<cite>float4/vec4</cite>)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="macros">
+<h2>Macros<a class="headerlink" href="#macros" title="Permalink to this headline">¶</a></h2>
+<p>You can define preprocessor macros through the UI. Right click on a shader pass → click <cite>Macros</cite>.</p>
+<p>The VALUE field is optional. When the <cite>active</cite> checkbox is unchecked it temporarily <em>undefines</em> the macro.</p>
+<p>Basically this adds preprocessor macros to your shader in this format:</p>
+<p>#define NAME VALUE</p>
+<p>Adding/removing/(de)activating a macro requires shaders to be recompiled.</p>
+<img alt="Macros" src="_images/Macros.png" />
+</div>
+<div class="section" id="resources">
+<h2>Resources<a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h2>
+<p>In the resources window you can see all the objects that are bound
+to this shader pass and you can change the slots to which those objects are bound to.</p>
+<img alt="Resources" src="_images/Resources.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pipelineitems.html" class="btn btn-neutral float-right" title="Other pipeline items" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="workspace.html" class="btn btn-neutral float-left" title="Workspace" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, dfranx
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

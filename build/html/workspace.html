@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Workspace &mdash; SHADERed 1.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.4.0',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shader Pass" href="shaderpass.html" />
+    <link rel="prev" title="SHADERed" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SHADERed
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Workspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pinned">Pinned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pixel-inspect">Pixel Inspect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#project-options">Project options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-to-image-file">Render to image file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#browse-online">Browse online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#export-as-c-project">Export as C++ project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shaderpass.html">Shader Pass</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#child-items">Child items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#d-model">3D Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#vertex-buffer">Vertex Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#render-state">Render State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#change-variable-value-for-pipeline-items">Change variable value for pipeline items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#system-variables">System variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#function-values">Function values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#input-layout">Input layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#macros">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelineitems.html">Other pipeline items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#compute-pass">Compute pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#audio-pass">Audio pass</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="objects.html">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#render-texture">Render texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#d-image">2D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#id1">3D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#keyboard-texture">Keyboard texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html#srvs-uavs">SRVs &amp; UAVs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#overlay">Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pluginapi.html">Plugin API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#building-a-plugin">Building a plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#iplugin1">IPlugin1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pluginapi.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#project">Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#menu">Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#context">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#system-variables">System variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#function-variables">Function variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#pipeline-items">Pipeline items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="website.html#difference-between-quick-fork-fork">Difference between quick fork &amp; fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#pinned-variables">Pinned variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#following-notifications">Following &amp; notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#javascript-functions">Javascript functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#simple">#1 - Simple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-pass">Shader pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#d-objects">3D objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-code">Shader code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#textured-cube">#2 - Textured cube</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SHADERed</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Workspace</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/workspace.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="workspace">
+<h1>Workspace<a class="headerlink" href="#workspace" title="Permalink to this headline">¶</a></h1>
+<p>SHADERed’s workspace is very modular. You can hide &amp; organize the
+windows however you want to. The workspace layout will be saved to
+a file as soon as you make changes and it will be loaded on the next startup.</p>
+<p>The workspace consists of several windows. We will briefly describe every window
+in the next section.</p>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="preview">
+<h3>Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h3>
+<p>Preview window contains the output of your shaders. The default camera is
+the “arcball camera”. You can rotate around the origin with right mouse click,
+increase/decrease the distance from origin with scroll wheel. The camera will
+always look at the origin point. You can change the camera to “first person camera”
+by checking the <cite>Options</cite> → <cite>Project</cite> → <cite>First person camera</cite> checkbox.
+Use WASD keys to move the first person camera around and right mouse button to look around.</p>
+<p>You can pick 3D objects by pressing the left mouse button while hovering over a 3D object.
+You can pick multiple 3D objects by holding <em>SHIFT</em> key and pressing the left mouse button.
+Press SHIFT+D (can be changed in options) to duplicate picked items. A gizmo/manipulator
+&amp; a bounding box will appear once you pick 3D objects. You can easily set up your 3D scene
+by using the gizmo/manipulator to move/scale/rotate the objects. The <em>P</em>, <em>S</em> &amp;
+<em>R</em> buttons in the status bar can be used to switch what action the manipulators will perform.</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>P</em> button (position) → the manipulator will move the object</li>
+<li><em>S</em> button (scale) → the manipulator will scale the object</li>
+<li><em>R</em> button (rotation) → the manipulator will rotate the object.</li>
+</ul>
+</div></blockquote>
+<img alt="Preview window" src="_images/PreviewWindow.png" />
+<p>Status bar might be hidden by default but you can show it either with the <cite>Preview.ToggleStatusBar</cite>
+shortcut or by checking the <cite>Options</cite> → <cite>Preview</cite> → <cite>Status bar</cite> checkbox.
+The status bar contains information such as FPS (frames per second), elapsed time, current zoom
+factor &amp; which 3D objects are picked.
+The pause button will stop the time while the fast forward button will increase the time by 0.1s.
+To zoom in on an area, hold the <cite>ALT</cite> key and select the area in the preview window with left mouse button.</p>
+</div>
+<div class="section" id="pipeline">
+<h3>Pipeline<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h3>
+<p>Pipeline window is probably the most important part of the workspace. You can compare it to game’s
+main loop. In this window you tell SHADERed how and what to render.</p>
+<p>Double clicking on an item usually does something. For example, double clicking on a shader pass item
+will open shaders in the code editor. It will also open the item in the <a class="reference internal" href="#properties">Properties</a>. window.
+The up/down arrow buttons will move the item up/down in the pipeline. You can hide shader pass’ children by pressing the collapse button.
+The eye icon button can be used to disable the item. Item won’t be processed
+by the renderer if it’s disabled.
+Right clicking on this window will open a context menu that shows items which can be created.</p>
+<p>You can move items from one shader pass to another by drag and dropping them. Hold CTRL key to duplicate the item while dragging it.</p>
+<p>Right clicking on a pipeline item will open a context menu with lots of options. Some of these options for shader pass are described <a class="reference external" href="shaderpass.html">here</a>.</p>
+<p>If two shader passes draw to the same render texture and are located next to each other (one shader pass
+is immediately below the other), the render texture they are rendering to won’t be cleared when executing the second shader pass which means
+that you can use two separate shader passes to draw to a single render texture. The render texture will
+be cleared in all other situations.</p>
+<p>Read more about shader passes <a class="reference external" href="shaderpass.html">here</a></p>
+<img alt="Pipeline window" src="_images/PipelineWindow.png" />
+</div>
+<div class="section" id="objects">
+<h3>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h3>
+<p>The “Objects” window contains the list of all of your textures, buffers, 2D/3D images, audio files, cubemaps, render textures, etc…</p>
+<p>Just like in the Pipeline window, right click on the window opens a context menu with objects you can create, right click on an object opens additional menu with various options &amp;
+if the preview is available for this this object then double clicking on it will open the preview in a special window.</p>
+<img alt="Objects window" src="_images/ObjectsWindow.png" />
+</div>
+<div class="section" id="properties">
+<h3>Properties<a class="headerlink" href="#properties" title="Permalink to this headline">¶</a></h3>
+<p>Right click on an item/object → <cite>Properties</cite> (or double click on the item/object) to open it in the Properties window.
+In this window you can change all the important information such as
+shader &amp; texture paths, object position, rotation &amp; scale, etc…</p>
+<img alt="Objects window" src="_images/PropertiesWindow.png" />
+</div>
+<div class="section" id="pinned">
+<h3>Pinned<a class="headerlink" href="#pinned" title="Permalink to this headline">¶</a></h3>
+<p>In this window you can find all your pinned uniform variables. We described how to pin variables in <a class="reference external" href="shaderpass.html">Shader Pass</a> section.</p>
+<p>This window makes accessing and modifying your variables easier.</p>
+<img alt="Pinned window" src="_images/PinnedWindow.png" />
+</div>
+<div class="section" id="output">
+<h3>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h3>
+<p>Output window contains a list of messages (usually) generated by the compiler.</p>
+<p>The table consists of 4 columns:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Shader Pass → the name of the shader pass that produced this message</li>
+<li>Source → the shader stage that produced this message</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>PS → pixel shader</li>
+<li>VS → vertex shader</li>
+<li>GS → geometry shader</li>
+<li>CS → compute shader</li>
+<li>AS → audio shader</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li>Line → the line that caused this message to be generated</li>
+<li>Message → the contents of the message. Error messages will usually use red color.</li>
+</ul>
+</div></blockquote>
+<p>You can click on the message if it contains line and source and it’ll open appropriate
+text editor.</p>
+<img alt="Output window" src="_images/OutputWindow.png" />
+</div>
+<div class="section" id="pixel-inspect">
+<h3>Pixel Inspect<a class="headerlink" href="#pixel-inspect" title="Permalink to this headline">¶</a></h3>
+<p>Left click on a pixel in the preview window to fetch pixel’s color when the preview is paused.
+The information will be displayed in this window. You can also start the shader debugger through this window.</p>
+<p>Other debugger related windows will be described in the <a class="reference external" href="debugger.html">Debugger</a> section.</p>
+<p>You can switch between windows using CTRL + Tab shortcut. You can hide UI by going into the “Performance mode” (by pressing <cite>F</cite> key or <cite>Window</cite> → <cite>Performance Mode</cite>)</p>
+<img alt="Pixel inspect window" src="_images/PixelInspectWindow.png" />
+</div>
+</div>
+<div class="section" id="project-options">
+<h2>Project options<a class="headerlink" href="#project-options" title="Permalink to this headline">¶</a></h2>
+<p>You can modify project’s settings by going to <cite>Project</cite> → <cite>Options</cite>. Here’s what you can change:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>First person camera</em> → switch from arcball camera to first person camera</li>
+<li><em>Window alpha channel</em> → when active, the format of Preview window’s main render texture will be RGBA instead of RGB</li>
+<li><em>Preview window clear color</em> → the color which will be used to clear the window. The alpha channel is ignored if <em>Window alpha channel</em> is not ticked.</li>
+<li><em>Include directories</em> → add directories which will be looked up when you use #includes in your shaders</li>
+</ul>
+</div></blockquote>
+<img alt="Project options" src="_images/ProjectOptions.png" />
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>Templates are a great way to avoid repetitive tasks when building a SHADERed project. For example, when you work a lot with
+shaders that utilize the G-Buffer, you could just set up the template rather than having to write same shaders every time.</p>
+<p>To create your own templates, first open the <em>templates</em> directory located in SHADERed’s installation directory.
+Place a folder containing <em>template.sprj</em> file in the <em>templates</em> directory. The folder’s name will be used in the <cite>File</cite> → <cite>New</cite> menu.</p>
+<p>Once you open the template through the <cite>File</cite> → <cite>New</cite> menu, you can’t directly modify it. You have to save a copy of it somewhere. SHADERed will open the “Save As” dialog for you the first time you try to save.</p>
+</div>
+<div class="section" id="using-an-external-text-editor">
+<h2>Using an external text editor<a class="headerlink" href="#using-an-external-text-editor" title="Permalink to this headline">¶</a></h2>
+<p>You can use a text editor of your choice if you don’t like the built-in one.
+There are quite a few settings in options that make this experience seamless. Open “Options” and turn on the “Recompile shader on file change” and
+“Open shaders in an external editor” options.</p>
+<p>Now when you double click on shader pass SHADERed will open the shader pass’ files in an external editor rather than the built-in one.
+Once you make changes to the file through your favorite text editor and hit CTRL+S (you modify the file), SHADERed will automatically detect these changes and recompile shaders.</p>
+<img alt="External editor" src="_images/ExternalEditor.png" />
+</div>
+<div class="section" id="render-to-image-file">
+<h2>Render to image file<a class="headerlink" href="#render-to-image-file" title="Permalink to this headline">¶</a></h2>
+<p>Do you want to save your output to an image file? Click <cite>Project</cite> → <cite>Render</cite> in the menubar.
+In this window you are able to change various options. You can change output’s path, width, height &amp; level of supersampling used.
+In the “Advanced” section you can change values of various system variables:</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Time</em> → current time</li>
+<li><em>Time delta</em> → time that was needed between previous and current frame</li>
+<li><em>Frame index</em> → index of the current frame</li>
+<li><em>WASD</em> → set whether W, A, S or D key is down</li>
+<li><em>Mouse</em> → set relative mouse position (0.0 - 1.0) and set left &amp; right mouse button state</li>
+</ul>
+</div></blockquote>
+<p>In the “Sequence” you can choose to render to a sequence of images. Check the “Record” checkbox and decide how long you want your sequence to be &amp; how many frames per seconds do you want to have it.
+When you are rendering to a image sequence you can use C-like %d format specifier in the filename to specify how
+and where you want your frame index to be kept. SHADERed will automatically append %d at the end of your filename if you don’t put the %d in filename by yourself.
+You can then use a tool such as <cite>ffmpeg</cite> to combine these images into a video, GIF, etc…</p>
+<img alt="Render to image" src="_images/RenderToImage.png" />
+</div>
+</div>
+<div class="section" id="camera-snapshots">
+<h1>Camera snapshots<a class="headerlink" href="#camera-snapshots" title="Permalink to this headline">¶</a></h1>
+<p>This feature lets you achieve effects such as shadow mapping.
+With this feature you can emulate having multiple cameras. Go to
+<cite>Project</cite> (in the menu bar) → <cite>Camera snapashots</cite> and there you will be able to either add a new snapshot
+or delete existing ones. SHADERed will copy camera’s current view matrix when you
+press “Add” and store that matrix under a name that you specify.</p>
+<p>To use these matrices, define a float4x4/mat4 variable in the VariableManager and use
+the <a class="reference external" href="shaderpass.html#function-values">CameraSnapshot</a> function.</p>
+</div>
+<div class="section" id="code-snippets">
+<h1>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this headline">¶</a></h1>
+<p>Code snippets make it easier to write reapeating code patterns. These snippets will be listed in autocomplete. You can add code snippets in <cite>Options</cite>.
+To define a placeholder use {$NUMBER}. The numbers start from 1. To assign a default string to a placholder do: {$NUMBER:STRING}. You must assign string first time the placeholder is defined.</p>
+<p>You can pick the language to which this snippet applies:</p>
+<blockquote>
+<div><ul class="simple">
+<li>* → all languages</li>
+<li>HLSL → the snippet will be suggested only in HLSL shaders</li>
+<li>GLSL → the snippet will be suggested only in GLSL shaders</li>
+</ul>
+</div></blockquote>
+<p>The value you enter in the “Display” textbox is the text that will appear in the autocomplete. The snippet will appear in autocomplete once you start typing the words in text editor that you’ve entered in the “Search” textbox.</p>
+<img alt="Snippet editor" src="_images/CodeSnippets.png" />
+<div class="section" id="browse-online">
+<h2>Browse online<a class="headerlink" href="#browse-online" title="Permalink to this headline">¶</a></h2>
+<p>“Browse online” window is a new feature introduced in v1.4. You can access it by clicking the <cite>File</cite> → <cite>Browse online</cite> option.
+A window will open and there you can:</p>
+<blockquote>
+<div><ul class="simple">
+<li>browse &amp; download shaders that are hosted on shadered.org</li>
+<li>install plugins that are hosted on shadered.org</li>
+<li>install themes that are hosted on shadered.org</li>
+</ul>
+</div></blockquote>
+<p>You can search by entering your search query into the “Query: ” textbox.
+If you want to search for shaders/plugins/themes by a specific user, enter their username into the “By: ” textbox.</p>
+<p>Use “&lt;&lt;” and “&gt;&gt;” button to go to the previous/next page.</p>
+<img alt="Browse shaders" src="_images/BrowseOnline.png" />
+</div>
+<div class="section" id="export-as-c-project">
+<h2>Export as C++ project<a class="headerlink" href="#export-as-c-project" title="Permalink to this headline">¶</a></h2>
+<p>You can generate standalone C++ application from your SHADERed project. Go <cite>File</cite> → <cite>Export</cite> → <cite>C++ project</cite>. Most
+of the options are self-explanatory. If “Store shaders in memory” option is checked SHADERed will store all the shader code as strings in the output .cpp file, otherwise
+it will create a file for each shader.</p>
+<p>You can modify the template for C++ output by editing the files in <cite>data/export/cpp</cite> directory (which is located in SHADERed’s installation directory).</p>
+<img alt="Export as C++ project" src="_images/ExportAsCPP.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shaderpass.html" class="btn btn-neutral float-right" title="Shader Pass" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="SHADERed" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, dfranx
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

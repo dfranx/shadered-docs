@@ -1,0 +1,515 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Objects &mdash; SHADERed 1.4.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/logo.png"/>
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'1.4.0',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Debugger" href="debugger.html" />
+    <link rel="prev" title="Other pipeline items" href="pipelineitems.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> SHADERed
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="workspace.html">Workspace</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#windows">Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#preview">Preview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pipeline">Pipeline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#objects">Objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pinned">Pinned</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#output">Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#pixel-inspect">Pixel Inspect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#project-options">Project options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#render-to-image-file">Render to image file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#browse-online">Browse online</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#export-as-c-project">Export as C++ project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shaderpass.html">Shader Pass</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#child-items">Child items</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#geometry">Geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#d-model">3D Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#vertex-buffer">Vertex Buffer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#render-state">Render State</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#variables">Variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#change-variable-value-for-pipeline-items">Change variable value for pipeline items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#system-variables">System variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="shaderpass.html#function-values">Function values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#input-layout">Input layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#macros">Macros</a></li>
+<li class="toctree-l2"><a class="reference internal" href="shaderpass.html#resources">Resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pipelineitems.html">Other pipeline items</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#compute-pass">Compute pass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pipelineitems.html#audio-pass">Audio pass</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#render-texture">Render texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#audio">Audio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#buffer">Buffer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d-image">2D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3D image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keyboard-texture">Keyboard texture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#srvs-uavs">SRVs &amp; UAVs</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="debugger.html">Debugger</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#overlay">Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#debugging">Debugging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#breakpoints">Breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#variables">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pluginapi.html">Plugin API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#building-a-plugin">Building a plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pluginapi.html#iplugin1">IPlugin1</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pluginapi.html#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#project">Project</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#menu">Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#context">Context</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#system-variables">System variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#function-variables">Function variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#objects">Objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pluginapi.html#pipeline-items">Pipeline items</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="website.html">Website</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="website.html#difference-between-quick-fork-fork">Difference between quick fork &amp; fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#pinned-variables">Pinned variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="website.html#following-notifications">Following &amp; notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedapi.html">Embed API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="embedapi.html#javascript-functions">Javascript functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#simple">#1 - Simple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-pass">Shader pass</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#d-objects">3D objects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#shader-code">Shader code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tutorials.html#result">Result</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tutorials.html#textured-cube">#2 - Textured cube</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SHADERed</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/objects.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="objects">
+<h1>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h1>
+<p>Objects in SHADERed are considered as items that can be accessed by a shader,
+such as: textures, cubemaps, render textures, buffers, etc…</p>
+<div class="section" id="texture-cubemaps">
+<h2>Texture &amp; cubemaps<a class="headerlink" href="#texture-cubemaps" title="Permalink to this headline">¶</a></h2>
+<p>You can load textures from files with the already described steps or you can simply drag and drop an image file into SHADERed (works both for web and desktop version of SHADERed).</p>
+<p>In the texture’s properties you can decide what filtering &amp; wrapping mode to use + whether or not to vertically flip the texture.</p>
+<p>To bind the texture right click on it → <cite>Bind</cite> → select a shader pass. The number in brackets tells you to which slot the texture will be bound.</p>
+</div>
+<div class="section" id="render-texture">
+<h2>Render texture<a class="headerlink" href="#render-texture" title="Permalink to this headline">¶</a></h2>
+<p>Render texture is a surface to which you can render. In render texture’s properties
+you can choose the format of the render texture and whether or not to clear it.
+You can also change the size of a render texture. You can either set it to fixed size
+(which means that it’s size will always stay the same regardless of the
+size of the preview window) or to ratio size (which means that the render texture
+will be scaled relative to the preview window’s size). For example, render texture
+with ratio size of 2 will make the RT twice as wide and high as the
+preview window. 1 will make it as wide and as high as the preview window,
+0.5 will make the width and height half of the width and height
+of the preview window, etc…</p>
+<p>You can save the contents of a render texture to a image file by right clicking
+on it or on it’s preview and then pressing the <cite>Save</cite> button.</p>
+<img alt="Render texture properties" src="_images/RenderTextureProperties.png" />
+</div>
+<div class="section" id="audio">
+<h2>Audio<a class="headerlink" href="#audio" title="Permalink to this headline">¶</a></h2>
+<p>Binding an audio to your shader will actually bind a 512x2 texture.
+The first row of the texture will contain FFT data while the second
+row will contain samples.</p>
+</div>
+<div class="section" id="buffer">
+<h2>Buffer<a class="headerlink" href="#buffer" title="Permalink to this headline">¶</a></h2>
+<p>Every buffer must have a format. This format describes how the preview will
+look and how to handle the data (for example when using the buffer for instancing
+or vertex buffers).
+SHADERed will calculate size of a single row based on the buffer’s format.
+You can set the buffer’s size by entering a number in the “New buffer size (in bytes)” field. For example, if a single row size is 32B and you enter 64 in that field, your buffer will now have two rows.</p>
+<p>The CLEAR button will set every field to 0. The PAUSE button will pause the preview of your buffer.</p>
+<p>You can load data from textures either in the byte (example: (255, 0, 0, 0))
+or float (example: (1.0, 0, 0, 0)) format.</p>
+<p>The “LOAD DATA FROM 3D MODEL” button will load 3D model’s vertex positions (float4 / vec4) in the buffer.</p>
+<p>The “LOAD RAW DATA” button will load the data from a file as is - without
+making any modifications to the data. This can be useful when you want to load data from .buf file</p>
+</div>
+<div class="section" id="d-image">
+<h2>2D image<a class="headerlink" href="#d-image" title="Permalink to this headline">¶</a></h2>
+<p>2D images can be used as a compute shader’s output.
+You can modify image’s size and format in the properties.</p>
+<p>You can clear the image or load data from an already loaded <cite>texture</cite> by using the “Data” dropdown.</p>
+</div>
+<div class="section" id="id1">
+<h2>3D image<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>3D images can be used as a compute shader’s output.
+You can modify image’s size and format in the properties.</p>
+</div>
+<div class="section" id="keyboard-texture">
+<h2>Keyboard texture<a class="headerlink" href="#keyboard-texture" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>The keyboard texture is a 256x3 texture that contains:</dt>
+<dd><ul class="first last simple">
+<li>row 0 → current state of the key</li>
+<li>row 1 → keypress event</li>
+<li>row 2 → toggle</li>
+</ul>
+</dd>
+</dl>
+<p>Each column/x coordinate in the texture corresponds to a single key code.</p>
+<p>Here’s a list of key codes:</p>
+<div class="highlight-c++"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_BACKSPACE</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_TAB</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_RETURN</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_PAUSE</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_CAPSLOCK</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_ESCAPE</span> <span class="o">=</span> <span class="mi">27</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_PAGEUP</span> <span class="o">=</span> <span class="mi">33</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_SPACE</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_PAGEDOWN</span> <span class="o">=</span> <span class="mi">34</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_END</span> <span class="o">=</span> <span class="mi">35</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_HOME</span> <span class="o">=</span> <span class="mi">36</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_LEFT</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_UP</span> <span class="o">=</span> <span class="mi">38</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_RIGHT</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_DOWN</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_PRINTSCREEN</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_INSERT</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_DELETE</span> <span class="o">=</span> <span class="mi">46</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_0</span> <span class="o">=</span> <span class="mi">48</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_1</span> <span class="o">=</span> <span class="mi">49</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_2</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_3</span> <span class="o">=</span> <span class="mi">51</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_4</span> <span class="o">=</span> <span class="mi">52</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_5</span> <span class="o">=</span> <span class="mi">53</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_6</span> <span class="o">=</span> <span class="mi">54</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_7</span> <span class="o">=</span> <span class="mi">55</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_8</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_9</span> <span class="o">=</span> <span class="mi">57</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_a</span> <span class="o">=</span> <span class="mi">65</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_b</span> <span class="o">=</span> <span class="mi">66</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_c</span> <span class="o">=</span> <span class="mi">67</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_d</span> <span class="o">=</span> <span class="mi">68</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_e</span> <span class="o">=</span> <span class="mi">69</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_f</span> <span class="o">=</span> <span class="mi">70</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_g</span> <span class="o">=</span> <span class="mi">71</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_h</span> <span class="o">=</span> <span class="mi">72</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_i</span> <span class="o">=</span> <span class="mi">73</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_j</span> <span class="o">=</span> <span class="mi">74</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_k</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_l</span> <span class="o">=</span> <span class="mi">76</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_m</span> <span class="o">=</span> <span class="mi">77</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_n</span> <span class="o">=</span> <span class="mi">78</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_o</span> <span class="o">=</span> <span class="mi">79</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_p</span> <span class="o">=</span> <span class="mi">80</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_q</span> <span class="o">=</span> <span class="mi">81</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_r</span> <span class="o">=</span> <span class="mi">82</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_s</span> <span class="o">=</span> <span class="mi">83</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_t</span> <span class="o">=</span> <span class="mi">84</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_u</span> <span class="o">=</span> <span class="mi">85</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_v</span> <span class="o">=</span> <span class="mi">86</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_w</span> <span class="o">=</span> <span class="mi">87</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_x</span> <span class="o">=</span> <span class="mi">88</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_y</span> <span class="o">=</span> <span class="mi">89</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_z</span> <span class="o">=</span> <span class="mi">90</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_SELECT</span> <span class="o">=</span> <span class="mi">93</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_0</span> <span class="o">=</span> <span class="mi">96</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_1</span> <span class="o">=</span> <span class="mi">97</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_2</span> <span class="o">=</span> <span class="mi">98</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_3</span> <span class="o">=</span> <span class="mi">99</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_4</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_5</span> <span class="o">=</span> <span class="mi">101</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_6</span> <span class="o">=</span> <span class="mi">102</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_7</span> <span class="o">=</span> <span class="mi">103</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_8</span> <span class="o">=</span> <span class="mi">104</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_9</span> <span class="o">=</span> <span class="mi">105</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_MULTIPLY</span> <span class="o">=</span> <span class="mi">106</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_PLUS</span> <span class="o">=</span> <span class="mi">107</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_MINUS</span> <span class="o">=</span> <span class="mi">109</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_DECIMAL</span> <span class="o">=</span> <span class="mi">110</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_KP_DIVIDE</span> <span class="o">=</span> <span class="mi">111</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F1</span> <span class="o">=</span> <span class="mi">112</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F2</span> <span class="o">=</span> <span class="mi">113</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F3</span> <span class="o">=</span> <span class="mi">114</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F4</span> <span class="o">=</span> <span class="mi">115</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F5</span> <span class="o">=</span> <span class="mi">116</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F6</span> <span class="o">=</span> <span class="mi">117</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F7</span> <span class="o">=</span> <span class="mi">118</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F8</span> <span class="o">=</span> <span class="mi">119</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F9</span> <span class="o">=</span> <span class="mi">120</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F10</span> <span class="o">=</span> <span class="mi">121</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F11</span> <span class="o">=</span> <span class="mi">122</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_F12</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_NUMLOCK</span> <span class="o">=</span> <span class="mi">144</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_SCROLLLOCK</span> <span class="o">=</span> <span class="mi">145</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_SEMICOLON</span> <span class="o">=</span> <span class="mi">186</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_EQUALS</span> <span class="o">=</span> <span class="mi">187</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_COMMA</span> <span class="o">=</span> <span class="mi">188</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_MINUS</span> <span class="o">=</span> <span class="mi">189</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_PERIOD</span> <span class="o">=</span> <span class="mi">190</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_SLASH</span> <span class="o">=</span> <span class="mi">191</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_LEFTBRACKET</span> <span class="o">=</span> <span class="mi">219</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_BACKSLASH</span> <span class="o">=</span> <span class="mi">220</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_RIGHTBRACKET</span> <span class="o">=</span> <span class="mi">221</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">KEY_QUOTE</span> <span class="o">=</span> <span class="mi">222</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">BUTTON_LEFT</span> <span class="o">=</span> <span class="mi">245</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">BUTTON_MIDDLE</span> <span class="o">=</span> <span class="mi">246</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">BUTTON_RIGHT</span> <span class="o">=</span> <span class="mi">247</span><span class="p">;</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MOUSE_SCROLL_UP</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>        <span class="c1">// row 0: not used; row 1: 0xFF if user is scrolling up; row 2: value that gets increased by 1 with each scroll</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MOUSE_SCROLL_DOWN</span> <span class="o">=</span> <span class="mi">251</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srvs-uavs">
+<h2>SRVs &amp; UAVs<a class="headerlink" href="#srvs-uavs" title="Permalink to this headline">¶</a></h2>
+<p>There are several mentions of SRV and UAV in SHADERed.
+You can consider SRV something that makes objects accessible to the shader for reading.
+UAV is similar but it allows both reading and writing.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="debugger.html" class="btn btn-neutral float-right" title="Debugger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pipelineitems.html" class="btn btn-neutral float-left" title="Other pipeline items" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, dfranx
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

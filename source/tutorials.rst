@@ -108,7 +108,7 @@ You can send custom variables to the shader, edit them and see the results in re
 without needing to recompile your shaders or restart the program.
 
 Right click on your shader pass |rarr| `Variables`. A window for creating variables will open - the so called "Variable Manager".
-Choose the type of your variable and enter it's name. Variable names are important - variable names in the Variable Manager and shader code must match.
+Choose the type of your variable and enter its name. Variable names are important - variable names in the Variable Manager and shader code must match.
 The system column allows you to choose some type of the value that SHADERed will
 automatically assign and update (time elapsed, cursor position, view matrix, etc...). If it is 
 set to `--NONE--` you can enter your own value.

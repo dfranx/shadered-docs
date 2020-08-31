@@ -18,7 +18,7 @@ Render texture
 Render texture is a surface to which you can render. In render texture's properties
 you can choose the format of the render texture and whether or not to clear it.
 You can also change the size of a render texture. You can either set it to fixed size
-(which means that it's size will always stay the same regardless of the
+(which means that its size will always stay the same regardless of the
 size of the preview window) or to ratio size (which means that the render texture
 will be scaled relative to the preview window's size). For example, render texture
 with ratio size of 2 will make the RT twice as wide and high as the
@@ -27,7 +27,7 @@ preview window. 1 will make it as wide and as high as the preview window,
 of the preview window, etc...
 
 You can save the contents of a render texture to a image file by right clicking
-on it or on it's preview and then pressing the `Save` button.
+on it or on its preview and then pressing the `Save` button.
 
 .. image:: images/RenderTextureProperties.png
    :alt: Render texture properties

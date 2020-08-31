@@ -159,7 +159,7 @@ Functions related to project loading/saving.
 Menu
 ++++++++++++++++++++++++++++++++++++++++++
 
-UI methods for adding items to the menu bar & it's menus.
+UI methods for adding items to the menu bar & its menus.
 
 .. function:: bool HasCustomMenuItem()
 
@@ -180,7 +180,7 @@ UI methods for adding items to the menu bar & it's menus.
 		* "createitem" |rarr| parent is the `Project` |rarr| `Create`
 		* "window" |rarr| parent is the `Window` menu in the menu bar
 
-	:return: true if this plugin wants to add it's own items to the menu, false otherwise
+	:return: true if this plugin wants to add its own items to the menu, false otherwise
 	:rtype: bool
 
 .. function:: ShowMenuItems(name)
@@ -214,7 +214,7 @@ UI methods for adding items to the context menus.
 		* "objects" |rarr| right click in the "Objects" window
 		* "editcode" |rarr| right click on a plugin item |rarr| `Edit code`
 		
-	:return: true if this plugin wants to add it's own items to the context menu, false otherwise
+	:return: true if this plugin wants to add its own items to the context menu, false otherwise
 	:rtype: bool
 
 .. function:: ShowContextItems(name, [owner = nullptr], [extraData = nullptr])
@@ -462,7 +462,7 @@ Methods for handling and implementing custom objects.
 
 .. function:: Object_HasContext(type)
 
-	Check if this plugin object should have more items in it's context menu than the "Preview", "Properties" & "Delete" buttons.
+	Check if this plugin object should have more items in its context menu than the "Preview", "Properties" & "Delete" buttons.
 
 	:param const_char* type: the type name of the object
 	:return: true if there are additional context menu items, false otherwise
@@ -507,11 +507,11 @@ Methods for handling and implementing custom pipeline items.
 
 .. function:: PipelineItem_HasShaders(type, data)
 
-	Check if the pipeline item has it's own shaders.
+	Check if the pipeline item has its own shaders.
 
 	:param const_char* type: the type name of the pipeline item
 	:param void* data: the data allocated by this plugin and passed to the AddCustomPipelineItem() function
-	:return: true if the pipeline item has it's own shaders, false otherwise
+	:return: true if the pipeline item has its own shaders, false otherwise
 	:rtype: bool
 
 .. function:: PipelineItem_OpenInEditor(type, data)
@@ -638,7 +638,7 @@ Methods for handling and implementing custom pipeline items.
 
 .. function:: PipelineItem_HasContext(const char* type, void* data) = 0;
 
-	Check if this plugin pipeline item should have additional items in it's context menu.
+	Check if this plugin pipeline item should have additional items in its context menu.
 
 	:param const_char* type: the type name of the pipeline item
 	:param void* data: the data allocated by this plugin and passed to the AddCustomPipelineItem() function

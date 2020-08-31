@@ -23,7 +23,7 @@ Geometry item is just a basic built-in 3D geometry. Here's a list of geometry ty
  * Triangle
  * Sphere
  * Plane
- * ScreenQuadNDC |rarr| the difference between ScreenQuadNDC and ScreenQuad is that ScreenQuadNDC is using normalized device coordinates [-1, 1] which means that you don't have to process it's position in vertex shader, meanwhile you have to multiply ScreenQuad's vertex positions (usually with Orthographic matrix) in order to display something reasonable
+ * ScreenQuadNDC |rarr| the difference between ScreenQuadNDC and ScreenQuad is that ScreenQuadNDC is using normalized device coordinates [-1, 1] which means that you don't have to process its position in vertex shader, meanwhile you have to multiply ScreenQuad's vertex positions (usually with Orthographic matrix) in order to display something reasonable
 
 Each geometry item has these properties:
  * Position
@@ -76,7 +76,7 @@ Change variable value for pipeline items
 You can change variable value only for a specific pipeline item. For example, this is useful
 when you have two cubes rendered with the same shader pass but want them to have different colors or materials.
 Right click on a cube #2 |rarr| `Change variables` |rarr| pick the variable that you want to change
-and enter it's new value. The variable will now take that value only when rendering cube #2.
+and enter its new value. The variable will now take that value only when rendering cube #2.
 
 System variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

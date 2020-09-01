@@ -15,9 +15,12 @@ Each shader has to be assigned to a shader pass. Shader pass is just a `'contain
 
 
 To create a shader pass, click on the `Project` |rarr| `Create` |rarr| `Shader Pass`.
-A dialog window will open and ask you to enter this shader pass' name, paths to your shaders (or let SHADERed automatically create shaders for you) and a shader `entry`. Shader `entry` is just
+A new dialog window will open and ask you to enter this shader pass' name, paths to your
+shaders (or let SHADERed automatically create shaders for you) and a shader `entry`. Shader `entry` is just
 a name of the function in which your shader program starts. It is used only in HLSL shaders.
-
+If you let SHADERed create shader files for you, it will create .glsl files - GLSL shaders. Though, if you
+want to use HLSL (and we do want to use it in this tutorial), your files must end with a .hlsl extension.
+So create two files that end with .hlsl .
 
 You can change those values later by right clicking on your shader pass and clicking on
 the `Properties` button. The shader pass will open in the property viewer window.

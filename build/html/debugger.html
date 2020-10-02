@@ -167,6 +167,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#immediate-mode">Immediate mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#watches">Watches</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vector-watch">Vector watch</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
@@ -290,6 +291,18 @@ The second color is calculated by the debugger. If the second color
 strongly deviates (small differences can be ignored) from the first color, it means that an error has occured
 in the debugger while executing the shader. I highly suggest to avoid debugging such shaders.</p>
 <p>The pixel inspect will also display information about the vertices that this pixel belongs to.</p>
+<p>The “Pixel inspect” window will sometimes also display suggestions. These suggestions are currently only
+related to compute shaders. The suggestions probably won’t be correct some of the time - they are just a guess
+by SHADERed that tell you which thread might be relevant to selected pixel. You can get these suggestions by:</p>
+<blockquote>
+<div><ul class="simple">
+<li>inspecting a pixel of instanced object whose buffer is passed to a compute shader</li>
+<li>inspecting a pixel of VertexBuffer whose buffer is passed to a compute shader</li>
+<li>clicking on an image preview</li>
+</ul>
+</div></blockquote>
+<p>The compute shader debugger runs also other threads in the group when necessary and supports memory
+synchronization.</p>
 </div>
 <div class="section" id="overlay">
 <h2>Overlay<a class="headerlink" href="#overlay" title="Permalink to this headline">¶</a></h2>
@@ -302,6 +315,9 @@ lines that show you excatly what vertices and what pixel you’ve selected.</p>
 <p>To start the pixel shader debugger, press the play button next to the
 color in the pixel inspect window. To start the vertex shader debugger,
 press the play button next to the vertex that you want to debug.</p>
+<p>To start the compute shader debugger, either click on the play button next
+to the suggestion or right click on the ComputePass object → select
+<cite>“Debug”</cite> option → enter thread ID.</p>
 <p>You have few options when the debugger starts:</p>
 <blockquote>
 <div><ul class="simple">
@@ -336,9 +352,22 @@ The so called conditional breakpoint will stop the debugger only if the entered 
 </div>
 <div class="section" id="watches">
 <h2>Watches<a class="headerlink" href="#watches" title="Permalink to this headline">¶</a></h2>
-<p>Watches window is similar to immediate mode except it allows storing multiple expressions
+<p>Watches window is similar to immediate window except it allows storing multiple expressions
 which will then be executed every time you step through your code.</p>
+<p>To delete a watch, delete the expression from the textbox and hit Enter key.</p>
 <img alt="Watches" src="_images/Watches.png" />
+</div>
+<div class="section" id="vector-watch">
+<h2>Vector watch<a class="headerlink" href="#vector-watch" title="Permalink to this headline">¶</a></h2>
+<p>Vector watch window is similar to “Watches” window. It allows you to store immediate expressions
+and also visualize their value in 3D space. This is useful when you want to see your
+vectors and points in 3D space.</p>
+<p>If you want to see your expression as a vector, pass either a vec3/float3 or vec4/float4 expression
+whose 4th (w) component is equal to 0. However, if you want to see your expression as a point, pass a
+vec4/float4 expression whose 4th (w) component is not equal to 0.</p>
+<p>You can change vector’s/point’s color by clicking on the colored square.</p>
+<p>The sphere in the center represents the unit sphere.</p>
+<img alt="Vector Watch" src="_images/VectorWatch.png" />
 </div>
 </div>
 

@@ -3,6 +3,8 @@
 Tutorials
 ==========================================
 
+Besides these two text tutorials, you can also watch these video tutorials - here's a `playlist <https://www.youtube.com/watch?v=vuJLpnL73As&list=PLK0EO-cKorzRAEfwHoJFiIldiyiyDR3-2>`_.
+
 #1 - Simple
 ******************************************
 We will start from a completely empty project. Open SHADERed and click on `File `&rightarrow;` New `&rightarrow;` Empty` option.

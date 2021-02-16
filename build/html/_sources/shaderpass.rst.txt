@@ -55,6 +55,8 @@ Render state is only applied to items below it and the internal state is reset w
 
 Variables
 ******************************************
+Watch the tutorial about variables on `YouTube <https://www.youtube.com/watch?v=sSMxQwFpJhk>`_
+
 Right click on the shader pass |rarr| `Variables` to access the variable manager.
 Here you'll see list of all of your variables for this shader pass.
 You can add, delete & modify variables.
@@ -139,6 +141,19 @@ Here's a list of currently available options:
  * Tangent (`float3/vec3`)
  * Binormal (`float3/vec3`)
  * Color (`float4/vec4`)
+
+The list above is suitable for built-in geometry objects and 3D models. But if
+you want to build a custom and flexible input layout to use with your VertexBuffer
+objects, you can use one of these values:
+
+ * BufferFloat (`float`)
+ * BufferFloat2 (`float2/vec2`)
+ * BufferFloat3 (`float3/vec3`)
+ * BufferFloat4 (`float4/vec4`)
+ * BufferInt (`int`)
+ * BufferInt2 (`int2/ivec2`)
+ * BufferInt3 (`int3/ivec3`)
+ * BufferInt4 (`int4/ivec4`)
 
 Macros
 ******************************************

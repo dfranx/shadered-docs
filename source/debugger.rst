@@ -2,12 +2,14 @@
 
 Debugger
 ==========================================
-SHADERed comes with a shader debugger. The debugger currently only supports vertex and pixel shaders.
+SHADERed comes with a shader debugger. The debugger currently supports vertex, geometry, pixel & compute shaders.
 
 Pixel Inspect
 ******************************************
 Pixel inspect contains the information about the selected pixel.
-To select a pixel, first pause the preview then left click on a pixel.
+To select a pixel, first pause the preview (you can do that by pressing
+the `space` key or by hitting the pause button in Preview's statusbar -
+can be enabled in Options |rarr| Preview |rarr| Status bar) then left click on a pixel.
 SHADERed will also automatically select all related pixels in every render texture.
 
 Click the "FETCH" button (if visible) to fetch additional information about the pixel.
@@ -20,14 +22,14 @@ in the debugger while executing the shader. I highly suggest to avoid debugging 
 The pixel inspect will also display information about the vertices that this pixel belongs to.
 
 The "Pixel inspect" window will sometimes also display suggestions. These suggestions are currently only
-related to compute shaders. The suggestions probably won't be correct some of the time - they are just a guess
-by SHADERed that tell you which thread might be relevant to selected pixel. You can get these suggestions by:
+related to compute shaders. The suggestions probably won't be correct some of the time - they are just guesses made
+by SHADERed that tell you which thread might be relevant to the selected pixel. You can get these suggestions by:
 
  * inspecting a pixel of instanced object whose buffer is passed to a compute shader
  * inspecting a pixel of VertexBuffer whose buffer is passed to a compute shader
  * clicking on an image preview
 
-The compute shader debugger runs also other threads in the group when necessary and supports memory
+The compute shader debugger runs also other threads in the group when necessary and so it supports memory
 synchronization.
 
 Overlay
@@ -42,7 +44,9 @@ Debugging
 ******************************************
 To start the pixel shader debugger, press the play button next to the
 color in the pixel inspect window. To start the vertex shader debugger,
-press the play button next to the vertex that you want to debug.
+press the play button next to the vertex that you want to debug. To start the
+geometry shader debugger, press the play button next to the `"Geometry Shader"`
+label in the `"Pixel Insepct"` window.
 
 To start the compute shader debugger, either click on the play button next
 to the suggestion or right click on the ComputePass object |rarr| select

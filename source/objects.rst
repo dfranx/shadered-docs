@@ -5,13 +5,19 @@ Objects
 Objects in SHADERed are considered as items that can be accessed by a shader,
 such as: textures, cubemaps, render textures, buffers, etc...
 
-Texture & cubemaps
+Texture, Texture3D and cubemaps
 ******************************************
-You can load textures from files with the already described steps or you can simply drag and drop an image file into SHADERed (works both for web and desktop version of SHADERed).
+You can load textures from files:
+
+ * by right clicking on the `Objects` window
+ * by going to `Project` |rarr| `Create`
+ * or you can simply drag and drop an image file into SHADERed (works both for web and desktop version of SHADERed).
 
 In the texture's properties you can decide what filtering & wrapping mode to use + whether or not to vertically flip the texture.
 
-To bind the texture right click on it |rarr| `Bind` |rarr| select a shader pass. The number in brackets tells you to which slot the texture will be bound.
+To bind the texture right click on it |rarr| `Bind` |rarr| select a shader pass. The number in the brackets tells you which slot the texture will be bound to.
+
+Texture3D objects can currently only be loaded from `.dds` files.
 
 Render texture
 ******************************************

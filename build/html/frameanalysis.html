@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; SHADERed 1.4.0 documentation</title>
+  <title>Frame Analysis &mdash; SHADERed 1.4.0 documentation</title>
   
 
   
@@ -22,7 +22,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -46,9 +45,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Command line interface" href="commandline.html" />
+    <link rel="prev" title="Debugger" href="debugger.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -82,7 +82,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -100,7 +100,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="workspace.html">Workspace</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#windows">Windows</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="workspace.html#preview">Preview</a></li>
@@ -170,12 +170,12 @@
 <li class="toctree-l2"><a class="reference internal" href="debugger.html#vector-watch">Vector watch</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="frameanalysis.html">Frame Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#detect-undefined-behavior">Detect undefined behavior</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#global-breakpoints">Global breakpoints</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#heatmap">Heatmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#variable-value-viewer">Variable value viewer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#miscellaneous">Miscellaneous</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Frame Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#detect-undefined-behavior">Detect undefined behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-breakpoints">Global breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#heatmap">Heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variable-value-viewer">Variable value viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#miscellaneous">Miscellaneous</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
@@ -266,12 +266,14 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Frame Analysis</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/frameanalysis.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -283,23 +285,99 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="frame-analysis">
+<h1>Frame Analysis<a class="headerlink" href="#frame-analysis" title="Permalink to this headline">¶</a></h1>
+<p>SHADERed comes with a tool that lets you analyze your shaders more in-depth.</p>
+<p>This tool comes with a set of features that will be described in the next few sections.
+Before we jump into describing those features, we should first see how to initiate the frame analysis.</p>
+<p>First, pause the preview by pressing the pause button on Preview window’s statusbar (the statusbar might be not be enabled by default, to enable it, turn on the <cite>Options</cite> → <cite>Preview</cite> → <cite>Statusbar</cite> option)
+or by hitting the <cite>Space</cite> key.</p>
+<p>Once the preview is paused, you will see the <cite>“Analyze”</cite> button on the previously mentioned statusbar. Click on that button and a window will open up.</p>
+<img alt="Analyzer window" src="_images/AnalyzerWindow.png" />
+<p>This window contains two tabs - <cite>Region</cite> and <cite>Breakpoints</cite>. The <cite>Breakpoints</cite> tab will be covered in the <a class="reference internal" href="#global-breakpoints">Global breakpoints</a> section and we will now only focus on the <cite>Region</cite> tab.
+Here you can choose whether you want to analyze the whole frame (render it with the software renderer) or just a small region.
+I definitely recommend running the analyzer on a smaller region if you have some very complex shader.
+Running it on the whole frame, each pixel having (for example) 60k instructions, will take quite some time.</p>
+<p>You select a region by left clicking and then dragging. Once you are done, hit the <cite>Analyze</cite> button.</p>
+<p>SHADERed will now gather various data about your shader. You can switch between various view using the dropdown in the statusbar.</p>
+<div class="section" id="detect-undefined-behavior">
+<h2>Detect undefined behavior<a class="headerlink" href="#detect-undefined-behavior" title="Permalink to this headline">¶</a></h2>
+<p>When analyzing a frame, SHADERed will on each pixel analyzed check if any of the undefined behaviors occured.</p>
+<p>Pixels with undefined behavior will be colored with bright white color.
+Hovering over them will display the cause of the undefined behavior, exact line on which the undefined behavior happened and how many undefined behaviors happened on that pixel.
+Note that if you have multiple undefined behaviors on one pixel, only the last reason will be displayed.
+You can click on the pixel and start the debugger through the <cite>Pixel Inspect</cite> window.</p>
+<p>Here’s a list of all undefined behaviors SHADERed can detect:</p>
+<blockquote>
+<div><ul class="simple">
+<li>division by zero</li>
+<li>mod by zero</li>
+<li>asin(x) when abs(x) &gt; 1</li>
+<li>acos(x) when abs(x) &gt; 1</li>
+<li>acosh(x) when abs(x) &gt;= 1</li>
+<li>atanh(x) when abs(x) &gt;= 1</li>
+<li>atan2(y, x) when x = y = 0</li>
+<li>pow(x, y) when x &lt; 0 or when when x = 0 and y &lt;= 0</li>
+<li>log(x) when x &lt;= 0</li>
+<li>log2(x) when x &lt;= 0</li>
+<li>sqrt(x) when x &lt; 0</li>
+<li>inversesqrt(x) when x &lt;= 0</li>
+<li>min(x, y) when x or y is NaN</li>
+<li>max(x, y) when x or y is NaN</li>
+<li>clamp(x, minVal, maxVal) when minVal &gt; maxVal</li>
+<li>smoothstep(edge0, edge1, x) when edge0 &gt;= edge1</li>
+<li>frexp(x, out exp) when x is NaN or inf</li>
+<li>ldexp(x, exp) when exp &gt; 128 (float) or exp &gt; 1024 (double)</li>
+</ul>
+</div></blockquote>
+<img alt="Undefined behavior viewer" src="_images/UndefinedBehavior.png" />
+</div>
+<div class="section" id="global-breakpoints">
+<h2>Global breakpoints<a class="headerlink" href="#global-breakpoints" title="Permalink to this headline">¶</a></h2>
+<p>In the previously mentioned <cite>Breakpoints</cite> tab, you will see breakpoints that you’ve placed in “relevant” shaders (the ones that will be executed by the software renderer).
+You can select up to 8 breakpoints. For each breakpoint you can change the color.
+This color will be shown instead of the original pixel color in the preview window if SHADERed hit the breakpoint (note that you must change the view with the dropdown located on the statusbar).</p>
+<p>The breakpoints don’t have to be conditional breakpoints, but if they are, the pixels will only be colored with the breakpoint color if the condition has been met.</p>
+<img alt="Global breakpoints" src="_images/GlobalBreakpoints.png" />
+</div>
+<div class="section" id="heatmap">
+<h2>Heatmap<a class="headerlink" href="#heatmap" title="Permalink to this headline">¶</a></h2>
+<p>After switching to “Heatmap” view, you will be able to see how many <em>SPIR-V instructions</em> were executed for each pixel.
+Note that this is not a true representation of actual instruction count executed on the GPU.</p>
+<img alt="Heatmap" src="_images/Heatmap.png" />
+</div>
+<div class="section" id="variable-value-viewer">
+<h2>Variable value viewer<a class="headerlink" href="#variable-value-viewer" title="Permalink to this headline">¶</a></h2>
+<p>To see the variable’s value on a certain line, open the text editor, hold CTRL + ALT and left click on the variable whose value you want to see.</p>
+<p>You don’t have to analyze the whole frame to see variable’s value throughout the whole frame.</p>
+<img alt="Variable value" src="_images/VariableValueViewer.png" />
+</div>
+<div class="section" id="miscellaneous">
+<h2>Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permalink to this headline">¶</a></h2>
+<p>After done with analyzing the frame, this feature set includes another window “Frame analysis”.
+In this window you can see miscellaneous information about your shader and frame.</p>
+<p>There’s color histogram. You can switch between RGB, R, G and B views.
+Color histogram takes the data from the GPU renderer, so you don’t need to analyze the whole frame.</p>
+<p>This window will also contain various stats, such as: average instruction count, number of pixels rendered, number of pixels discarded, etc…</p>
+<p>There’s also pixel history section which will allow you to debug pixel’s that were rendered over and are now invisible.</p>
+<img alt="Frame Analysis window" src="_images/FrameAnalysis.png" />
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="commandline.html" class="btn btn-neutral float-right" title="Command line interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="debugger.html" class="btn btn-neutral float-left" title="Debugger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -339,14 +417,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

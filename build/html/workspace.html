@@ -110,16 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#pinned">Pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#output">Output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profiler">Profiler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#project-options">Project options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#focus-mode">Focus mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#render-to-image-file">Render to image file</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#camera-snapshots">Camera snapshots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#code-snippets">Code snippets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#browse-online">Browse online</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#export-as-c-project">Export as C++ project</a></li>
 </ul>
@@ -286,6 +286,7 @@ a file as soon as you make changes and it will be loaded on the next startup.</p
 in the next section.</p>
 <div class="section" id="windows">
 <h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>You can switch between windows using CTRL + Tab shortcut. You can hide UI by going into the “Performance mode” (by pressing <cite>F</cite> key or <cite>Window</cite> → <cite>Performance Mode</cite>)</p>
 <div class="section" id="preview">
 <h3>Preview<a class="headerlink" href="#preview" title="Permalink to this headline">¶</a></h3>
 <p>Preview window contains the output of your shaders. The default camera is
@@ -368,6 +369,8 @@ shader &amp; texture paths, object position, rotation &amp; scale, etc…</p>
 <li>PS → pixel shader</li>
 <li>VS → vertex shader</li>
 <li>GS → geometry shader</li>
+<li>TCS → tessellation control shader</li>
+<li>TES → tessellation evaluation shader</li>
 <li>CS → compute shader</li>
 <li>AS → audio shader</li>
 </ul>
@@ -386,8 +389,13 @@ text editor.</p>
 <p>Left click on a pixel in the preview window to fetch pixel’s color when the preview is paused.
 The information will be displayed in this window. You can also start the shader debugger through this window.</p>
 <p>Other debugger related windows will be described in the <a class="reference external" href="debugger.html">Debugger</a> section.</p>
-<p>You can switch between windows using CTRL + Tab shortcut. You can hide UI by going into the “Performance mode” (by pressing <cite>F</cite> key or <cite>Window</cite> → <cite>Performance Mode</cite>)</p>
 <img alt="Pixel inspect window" src="_images/PixelInspectWindow.png" />
+</div>
+<div class="section" id="profiler">
+<h3>Profiler<a class="headerlink" href="#profiler" title="Permalink to this headline">¶</a></h3>
+<p>Profiler window contains the execution times of your shader passes.
+SHADERed by default doesn’t track the execution times, so to turn it on, go to <cite>Window</cite> → <cite>Options</cite> → <cite>General</cite> and turn on the <cite>Profiler</cite> option.</p>
+<img alt="Profiler window" src="_images/ProfilerWindow.png" />
 </div>
 </div>
 <div class="section" id="project-options">
@@ -420,6 +428,17 @@ There are quite a few settings in options that make this experience seamless. Op
 Once you make changes to the file through your favorite text editor and hit CTRL+S (you modify the file), SHADERed will automatically detect these changes and recompile shaders.</p>
 <img alt="External editor" src="_images/ExternalEditor.png" />
 </div>
+<div class="section" id="focus-mode">
+<h2>Focus mode<a class="headerlink" href="#focus-mode" title="Permalink to this headline">¶</a></h2>
+<p>Focus mode lets you focus purely on your code.
+When you enter <cite>Focus mode</cite> all the UI will be hidden and all the text editors will be shown.
+You can turn on <cite>Focus mode</cite> two ways:</p>
+<ul class="simple">
+<li>menu → <cite>Window</cite> → <cite>Focus mode</cite></li>
+<li>using shortcut <cite>Workspace.FocusMode</cite> (can be changed in options)</li>
+</ul>
+<img alt="Focus mode" src="_images/FocusMode.png" />
+</div>
 <div class="section" id="render-to-image-file">
 <h2>Render to image file<a class="headerlink" href="#render-to-image-file" title="Permalink to this headline">¶</a></h2>
 <p>Do you want to save your output to an image file? Click <cite>Project</cite> → <cite>Render</cite> in the menubar.
@@ -440,9 +459,8 @@ and where you want your frame index to be kept. SHADERed will automatically appe
 You can then use a tool such as <cite>ffmpeg</cite> to combine these images into a video, GIF, etc…</p>
 <img alt="Render to image" src="_images/RenderToImage.png" />
 </div>
-</div>
 <div class="section" id="camera-snapshots">
-<h1>Camera snapshots<a class="headerlink" href="#camera-snapshots" title="Permalink to this headline">¶</a></h1>
+<h2>Camera snapshots<a class="headerlink" href="#camera-snapshots" title="Permalink to this headline">¶</a></h2>
 <p>This feature lets you achieve effects such as shadow mapping.
 With this feature you can emulate having multiple cameras. Go to
 <cite>Project</cite> (in the menu bar) → <cite>Camera snapashots</cite> and there you will be able to either add a new snapshot
@@ -452,7 +470,7 @@ press “Add” and store that matrix under a name that you specify.</p>
 the <a class="reference external" href="shaderpass.html#function-values">CameraSnapshot</a> function.</p>
 </div>
 <div class="section" id="code-snippets">
-<h1>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this headline">¶</a></h1>
+<h2>Code snippets<a class="headerlink" href="#code-snippets" title="Permalink to this headline">¶</a></h2>
 <p>Code snippets make it easier to write reapeating code patterns. These snippets will be listed in autocomplete. You can add code snippets in <cite>Options</cite>.
 To define a placeholder use {$NUMBER}. The numbers start from 1. To assign a default string to a placholder do: {$NUMBER:STRING}. You must assign string first time the placeholder is defined.</p>
 <p>You can pick the language to which this snippet applies:</p>
@@ -465,6 +483,7 @@ To define a placeholder use {$NUMBER}. The numbers start from 1. To assign a def
 </div></blockquote>
 <p>The value you enter in the “Display” textbox is the text that will appear in the autocomplete. The snippet will appear in autocomplete once you start typing the words in text editor that you’ve entered in the “Search” textbox.</p>
 <img alt="Snippet editor" src="_images/CodeSnippets.png" />
+</div>
 <div class="section" id="browse-online">
 <h2>Browse online<a class="headerlink" href="#browse-online" title="Permalink to this headline">¶</a></h2>
 <p>“Browse online” window is a new feature introduced in v1.4. You can access it by clicking the <cite>File</cite> → <cite>Browse online</cite> option.

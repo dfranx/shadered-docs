@@ -11,6 +11,8 @@ in the next section.
 
 Windows
 ******************************************
+You can switch between windows using CTRL + Tab shortcut. You can hide UI by going into the "Performance mode" (by pressing `F` key or `Window` |rarr| `Performance Mode`)
+
 Preview
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Preview window contains the output of your shaders. The default camera is
@@ -107,6 +109,8 @@ The table consists of 4 columns:
   * PS |rarr| pixel shader
   * VS |rarr| vertex shader
   * GS |rarr| geometry shader
+  * TCS |rarr| tessellation control shader
+  * TES |rarr| tessellation evaluation shader
   * CS |rarr| compute shader
   * AS |rarr| audio shader
 
@@ -126,10 +130,16 @@ The information will be displayed in this window. You can also start the shader 
 
 Other debugger related windows will be described in the `Debugger <debugger.html>`_ section.
 
-You can switch between windows using CTRL + Tab shortcut. You can hide UI by going into the "Performance mode" (by pressing `F` key or `Window` |rarr| `Performance Mode`)
-
 .. image:: images/PixelInspectWindow.png
    :alt: Pixel inspect window
+
+Profiler
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Profiler window contains the execution times of your shader passes.
+SHADERed by default doesn't track the execution times, so to turn it on, go to `Window` |rarr| `Options` |rarr| `General` and turn on the `Profiler` option.
+
+.. image:: images/ProfilerWindow.png
+   :alt: Profiler window
 
 Project options
 ******************************************
@@ -165,6 +175,18 @@ Once you make changes to the file through your favorite text editor and hit CTRL
 .. image:: images/ExternalEditor.png
    :alt: External editor
 
+Focus mode
+******************************************
+Focus mode lets you focus purely on your code.
+When you enter `Focus mode` all the UI will be hidden and all the text editors will be shown.
+You can turn on `Focus mode` two ways:
+
+* menu |rarr| `Window` |rarr| `Focus mode`
+* using shortcut `Workspace.FocusMode` (can be changed in options)
+
+.. image:: images/FocusMode.png
+   :alt: Focus mode
+
 Render to image file
 ******************************************
 Do you want to save your output to an image file? Click `Project` |rarr| `Render` in the menubar.
@@ -186,7 +208,7 @@ You can then use a tool such as `ffmpeg` to combine these images into a video, G
    :alt: Render to image
 
 Camera snapshots
-==========================================
+******************************************
 This feature lets you achieve effects such as shadow mapping.
 With this feature you can emulate having multiple cameras. Go to
 `Project` (in the menu bar) |rarr| `Camera snapashots` and there you will be able to either add a new snapshot
@@ -197,7 +219,7 @@ To use these matrices, define a float4x4/mat4 variable in the VariableManager an
 the `CameraSnapshot <shaderpass.html#function-values>`_ function.
 
 Code snippets
-==========================================
+******************************************
 Code snippets make it easier to write reapeating code patterns. These snippets will be listed in autocomplete. You can add code snippets in `Options`.
 To define a placeholder use {$NUMBER}. The numbers start from 1. To assign a default string to a placholder do: {$NUMBER:STRING}. You must assign string first time the placeholder is defined.   
 

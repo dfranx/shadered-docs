@@ -6,7 +6,7 @@ Shader Pass is a pipeline item which tells SHADERed what items to render and wha
 SHADERed will ask you to enter the path to your shaders when you are creating a shader pass item.
 Shader files will be automatically created if you do not provide your own.
 You must set shader entry for HLSL shaders. Shader entry is the "main" function of your shader.
-Check the "GS used" checkbox if you want to use geometry shaders.
+Check the "GS used" checkbox if you want to use geometry shaders. "TS used" checkbox is for enabling tessellation shaders.
 You can later change all of this in the properties.
 
 Child items

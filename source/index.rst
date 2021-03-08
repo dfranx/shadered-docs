@@ -15,6 +15,7 @@ List of sections in this documentation:
    pipelineitems
    objects
    debugger
+   frameanalysis
    commandline
    pluginapi
    themes

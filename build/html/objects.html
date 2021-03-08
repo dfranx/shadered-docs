@@ -110,16 +110,16 @@
 <li class="toctree-l3"><a class="reference internal" href="workspace.html#pinned">Pinned</a></li>
 <li class="toctree-l3"><a class="reference internal" href="workspace.html#output">Output</a></li>
 <li class="toctree-l3"><a class="reference internal" href="workspace.html#pixel-inspect">Pixel Inspect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workspace.html#profiler">Profiler</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#project-options">Project options</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#templates">Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#using-an-external-text-editor">Using an external text editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#focus-mode">Focus mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#render-to-image-file">Render to image file</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#camera-snapshots">Camera snapshots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workspace.html#code-snippets">Code snippets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#browse-online">Browse online</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workspace.html#export-as-c-project">Export as C++ project</a></li>
 </ul>
@@ -149,7 +149,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Objects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#texture-cubemaps">Texture &amp; cubemaps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#texture-texture3d-and-cubemaps">Texture, Texture3D and cubemaps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#render-texture">Render texture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#audio">Audio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#buffer">Buffer</a></li>
@@ -168,6 +168,14 @@
 <li class="toctree-l2"><a class="reference internal" href="debugger.html#immediate-mode">Immediate mode</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugger.html#watches">Watches</a></li>
 <li class="toctree-l2"><a class="reference internal" href="debugger.html#vector-watch">Vector watch</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="frameanalysis.html">Frame Analysis</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#detect-undefined-behavior">Detect undefined behavior</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#global-breakpoints">Global breakpoints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#heatmap">Heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#variable-value-viewer">Variable value viewer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frameanalysis.html#miscellaneous">Miscellaneous</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="commandline.html">Command line interface</a></li>
@@ -281,11 +289,19 @@
 <h1>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h1>
 <p>Objects in SHADERed are considered as items that can be accessed by a shader,
 such as: textures, cubemaps, render textures, buffers, etc…</p>
-<div class="section" id="texture-cubemaps">
-<h2>Texture &amp; cubemaps<a class="headerlink" href="#texture-cubemaps" title="Permalink to this headline">¶</a></h2>
-<p>You can load textures from files with the already described steps or you can simply drag and drop an image file into SHADERed (works both for web and desktop version of SHADERed).</p>
+<div class="section" id="texture-texture3d-and-cubemaps">
+<h2>Texture, Texture3D and cubemaps<a class="headerlink" href="#texture-texture3d-and-cubemaps" title="Permalink to this headline">¶</a></h2>
+<p>You can load textures from files:</p>
+<blockquote>
+<div><ul class="simple">
+<li>by right clicking on the <cite>Objects</cite> window</li>
+<li>by going to <cite>Project</cite> → <cite>Create</cite></li>
+<li>or you can simply drag and drop an image file into SHADERed (works both for web and desktop version of SHADERed).</li>
+</ul>
+</div></blockquote>
 <p>In the texture’s properties you can decide what filtering &amp; wrapping mode to use + whether or not to vertically flip the texture.</p>
-<p>To bind the texture right click on it → <cite>Bind</cite> → select a shader pass. The number in brackets tells you to which slot the texture will be bound.</p>
+<p>To bind the texture right click on it → <cite>Bind</cite> → select a shader pass. The number in the brackets tells you which slot the texture will be bound to.</p>
+<p>Texture3D objects can currently only be loaded from <cite>.dds</cite> files.</p>
 </div>
 <div class="section" id="render-texture">
 <h2>Render texture<a class="headerlink" href="#render-texture" title="Permalink to this headline">¶</a></h2>

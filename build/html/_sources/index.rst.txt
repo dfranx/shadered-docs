@@ -10,6 +10,7 @@ List of sections in this documentation:
 .. toctree::
    :maxdepth: 1
 
+   installation
    workspace
    shaderpass
    pipelineitems

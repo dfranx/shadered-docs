@@ -2,7 +2,7 @@
 
 Debugger
 ==========================================
-SHADERed comes with a shader debugger. The debugger currently supports vertex, geometry, pixel & compute shaders.
+SHADERed comes with a shader debugger. The debugger currently supports vertex, geometry, tessellation control, pixel & compute shaders.
 
 Pixel Inspect
 ******************************************
